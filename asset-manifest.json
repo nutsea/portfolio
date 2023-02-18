@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a172a43f.css",
+    "main.js": "/static/js/main.e235b219.js",
+    "static/media/banner.svg": "/static/media/banner.120244bd85d5f00284d7f694fea7fa3c.svg",
+    "static/media/glass.jpg": "/static/media/glass.794319f00699281f07d1.jpg",
+    "static/media/500-1.png": "/static/media/500-1.7542050e5ba65536569c.png",
+    "static/media/500-5.png": "/static/media/500-5.960641fc4486dfd9e68e.png",
+    "static/media/500-2.png": "/static/media/500-2.7ca15020b27588c33df2.png",
+    "static/media/500-3.png": "/static/media/500-3.428cceaa899edbd398c5.png",
+    "static/media/500-6.png": "/static/media/500-6.13537982f2937a11da7f.png",
+    "static/media/500-4.png": "/static/media/500-4.0b5461886ada2c63160b.png",
+    "static/media/create.jpg": "/static/media/create.c7dab12c9f586cf866f7.jpg",
+    "static/media/chat.png": "/static/media/chat.de3665f666c5eb551496.png",
+    "static/media/arrow.png": "/static/media/arrow.602ce8f6181bc3e0573d.png",
+    "static/media/photo2.jpg": "/static/media/photo2.ec43f9e5428726b9f46d.jpg",
+    "static/media/photo3.jpg": "/static/media/photo3.b7c50c9f641896c61255.jpg",
+    "static/media/photo1.jpg": "/static/media/photo1.0e2ba595ba5f28496906.jpg",
+    "static/media/logo.svg": "/static/media/logo.5e9f9f798db8c795a33000fd906bbe35.svg",
+    "static/media/gitHub.svg": "/static/media/gitHub.db1e3cfa3aa61658d837d82e113dc1fe.svg",
+    "static/media/vk.svg": "/static/media/vk.ffb489eeac4ab842395ffb315910ea7f.svg",
+    "static/media/call.svg": "/static/media/call.dde5607785de3988023c1379ae4eab71.svg",
+    "index.html": "/index.html",
+    "static/media/loop.svg": "/static/media/loop.0155d51be6e81dec7017414c2a6458cf.svg",
+    "static/media/arr.svg": "/static/media/arr.c3f250522461c9f52a9e20d306be2b6b.svg",
+    "main.a172a43f.css.map": "/static/css/main.a172a43f.css.map",
+    "main.e235b219.js.map": "/static/js/main.e235b219.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a172a43f.css",
+    "static/js/main.e235b219.js"
+  ]
+}
