@@ -4,7 +4,6 @@ import './styles/app.scss'
 
 import logo from './assets/images/Logo.svg'
 import name from './assets/images/Name.svg'
-import bg from './assets/images/BG.png'
 
 function App() {
     const [loading, setLoading] = useState(true)
