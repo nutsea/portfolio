@@ -21,7 +21,7 @@ function App() {
 
     return (
         <div className="App">
-            <img className='Background' src={bg} alt="" />
+            {/* <img className='Background' src={bg} alt="" /> */}
             {loading &&
                 <div className='loader'></div>
             }
