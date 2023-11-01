@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react'
 import './styles/base.scss'
 import './styles/app.scss'
 
 import logo from './assets/images/Logo.svg'
 import name from './assets/images/Name.svg'
-import { useEffect, useState } from 'react'
+import bg from './assets/images/BG.png'
 
 function App() {
     const [loading, setLoading] = useState(true)
@@ -14,12 +15,13 @@ function App() {
             if (letLoad) {
                 setLoading(false)
                 clearInterval(interval)
-            } 
+            }
         }, 1000)
     })
 
     return (
         <div className="App">
+            <img className='Background' src={bg} alt="" />
             {loading &&
                 <div className='loader'></div>
             }

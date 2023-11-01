@@ -1,14 +1,19 @@
 .App {
     width: 100vw;
     min-height: 100vh;
-    background-color: #ececec;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: #252525;
 
+    .Background {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+    }
 
     .Header {
+        z-index: 1;
         width: 100%;
         margin-top: 20px;
         display: flex;
@@ -33,9 +38,10 @@
     }
 
     .Content.Loaded {
+        z-index: 1;
         width: 100vw;
         min-height: 100vh;
-        background-color: #ececec;
+        // background-color: #ececec;
         display: flex !important;
         flex-direction: column;
         align-items: center;

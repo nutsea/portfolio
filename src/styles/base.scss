@@ -28,9 +28,12 @@ a {
 }
 
 body {
-    background-color: black;
+    background-color: #d3d3d3;
     margin: 0;
     width: 100vw;
+    min-height: 100vh;
+    background-image: url('../assets/images/BG.png');
+    background-size: contain;
 }
 
 html {
