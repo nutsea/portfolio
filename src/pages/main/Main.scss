@@ -1,0 +1,457 @@
+@use '../../styles/base.scss';
+
+.MainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.MainInfo {
+    width: calc(100% - 705px - 36px);
+    height: 100%;
+}
+
+.MainInfoSub {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+        width: 5px;
+        margin-top: 2px;
+        margin-right: 6px;
+    }
+
+    span {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+.MainInfoPar {
+    margin: 30px 0 0 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.MainInfoBtns {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.MainInfoCasesBtn {
+    height: 46px;
+    width: fit-content;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background-color: base.$violet-btn;
+    color: base.$text-stable;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    box-shadow: base.$shadow;
+
+    img {
+        margin-left: 16px;
+        margin-top: 2px;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            // background-color: base.$violet-btn-hover;
+            opacity: 0.7;
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            // background-color: base.$violet-btn-hover;
+            opacity: 0.7;
+        }
+    }
+}
+
+.MainInfoContactBtn {
+    margin-left: 27px;
+    height: 43px;
+    border: solid 1.5px base.$text;
+    color: base.$text-stable;
+    width: fit-content;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    box-shadow: base.$shadow;
+
+    img {
+        margin-left: 16px;
+        margin-top: 2px;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            // background-color: base.$violet-btn-hover;
+            opacity: 0.7;
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            // background-color: base.$violet-btn-hover;
+            opacity: 0.7;
+        }
+    }
+}
+
+.MainInfoCircles {
+    margin-top: 30px;
+    margin-bottom: 6px;
+    display: flex;
+    flex-direction: row;
+
+    .Circle1 {
+        width: 47px;
+        height: 47px;
+        background-color: #C6BDFC80;
+        border-radius: 50px;
+        border: solid 1.5px base.$border;
+        z-index: -1;
+    }
+
+    .Circle2 {
+        width: 47px;
+        height: 47px;
+        background-color: #C6BDFC;
+        border-radius: 50px;
+        border: solid 1.5px base.$border;
+        transform: translate(-25px, 0);
+        z-index: -1;
+    }
+
+    .Circle3 {
+        width: 47px;
+        height: 47px;
+        background-color: #8576DF;
+        border-radius: 50px;
+        border: solid 1.5px base.$border;
+        transform: translate(-50px, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: -1;
+
+        img {
+            width: 30px;
+        }
+    }
+}
+
+.MainInfoDigits {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+.MainInfoDigit {
+    display: flex;
+    flex-direction: column;
+}
+
+.MainInfoDigit+.MainInfoDigit {
+    margin-left: 40px;
+}
+
+.MainInfoDigitSub {
+    font-size: 75px;
+    font-weight: 600;
+    color: base.$text;
+}
+
+.MainInfoDigitTip {
+    font-size: 16px;
+    font-weight: 400;
+    color: base.$text-half;
+}
+
+.MainInfoSlogan {
+    font-size: 70px;
+    font-weight: 700;
+    line-height: 80px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.MainInfoLine {
+    width: 100%;
+    height: 1px;
+    background-color: base.$line;
+    z-index: -1;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+        top: calc(50% - 2.5px);
+        left: 0;
+        background-color: base.$line;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 5px;
+        top: calc(50% - 2.5px);
+        right: 0;
+        background-color: base.$line;
+    }
+}
+
+// BANNER
+
+.MainBanner {
+    width: 705px;
+    height: calc(1080px - 70px - 70px);
+}
+
+.MainBannerBox {
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 36px;
+    background-image: url('../../assets/images/cubes.JPEG');
+    background-position: center;
+    background-size: cover;
+}
+
+.MainBannerContacts {
+    padding: 5px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    border-radius: 40px;
+    background-color: base.$banner;
+    backdrop-filter: blur(10px);
+
+    img {
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+
+        @media (hover: hover) {
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        @media (pointer: coarse) {
+            &:active {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    img+img {
+        margin-left: 9px;
+    }
+}
+
+.MainBannerBottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.MainBannerSticks {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.StickTip {
+    padding: 0 10px;
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+    width: fit-content;
+    background-color: base.$banner;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: -10px;
+    backdrop-filter: blur(10px);
+}
+
+.MainBannerStickBox+.MainBannerStickBox {
+    margin-left: 19px;
+}
+
+.MainBannerStick {
+    background-color: base.$banner;
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 16px;
+    border-top-left-radius: 0;
+
+    p {
+        width: 189px;
+        margin: 0 0 10px 0;
+        font-size: 15px;
+        font-weight: 400;
+        color: white;
+    }
+}
+
+.StickBtn {
+    height: 36px;
+    padding: 0 4px 0 16px;
+    width: fit-content;
+    background-color: white;
+    color: base.$text-stable;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: base.$violet-btn;
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            background-color: base.$violet-btn;
+        }
+    }
+
+    img {
+        height: 28px;
+    }
+
+    span {
+        margin-right: 10px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+.StickBtn+.StickBtn {
+    margin-top: 6px;
+}
+
+.StickListItem {
+    margin-top: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+        width: 12px;
+        margin-top: 1px;
+        margin-right: 7px;
+    }
+
+    span {
+        color: white;
+        font-size: 12px;
+        font-weight: 400;
+    }
+}
+
+.StickDiagram {
+    width: 195px;
+    margin-top: 16px;
+}
+
+.MainBannerSigns {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.MainLearnBtn {
+    height: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: base.$text-stable;
+    border-radius: 50px;
+    // box-shadow: base.$shadow;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: base.$violet-btn;
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            background-color: base.$violet-btn;
+        }
+    }
+
+    img {
+        width: 13px;
+        margin-left: 12px;
+        margin-top: 1px;
+    }
+}
+
+.MainSign {
+    width: 166px;
+    height: 40px;
+    color: white;
+    background-color: rgba(base.$violet, 0.4);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+}
+
+@media (min-width: 2250px) {
+    .MainInfo {
+        width: calc(100% - 1000px - 36px);
+    }
+
+    .MainBanner {
+        width: 1000px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .MainInfoSub {
+        margin-top: 0;
+    }
+}

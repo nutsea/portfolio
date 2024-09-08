@@ -1,79 +1,16 @@
+@use 'base.scss';
+
 .App {
-    width: 100vw;
+    width: 86vw;
+    max-width: 1920px;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #252525;
+    position: relative;
+}
 
-    .Background {
-        top: 0;
-        left: 0;
-        position: fixed;
-        height: 100vh;
-        width: 100vw;
-    }
-
-    .Header {
-        z-index: 1;
-        width: 100%;
-        margin-top: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        .AppLogo {
-            height: 50px;
-            margin-right: 15px;
-        }
-
-        .AppName {
-            margin-bottom: 8px;
-            width: 200px;
-            height: 32px;
-        }
-    }
-
-    .Content {
-        display: none;
-    }
-
-    .Content.Loaded {
-        z-index: 1;
-        width: 100vw;
-        min-height: 100vh;
-        // background-color: #ececec;
-        display: flex !important;
-        flex-direction: column;
-        align-items: center;
-        color: #252525;
-    }
-
-    .ComingSoon {
-        margin-top: 100px;
-        font-family: Raleway, sans-serif;
-        font-size: 20px;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .LookAt {
-        margin-top: 30px;
-        font-family: Raleway, sans-serif;
-        font-size: 16px;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .Link {
-        margin-top: 15px;
-        font-family: Raleway, sans-serif;
-        font-size: 16px;
-        background-color: #252525;
-        color: #ececec;
-        width: fit-content;
-        padding: 10px 20px;
-        border-radius: 10px;
-    }
+.PageContainer {
+    width: 100%;
+    padding: 35px 0;
+    color: base.$text;
+    // min-height: 1010px;
+    // min-height: 2000px;
 }

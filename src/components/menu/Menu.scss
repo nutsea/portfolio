@@ -1,0 +1,96 @@
+@use '../../styles/base.scss';
+
+.MenuContainer {
+    position: fixed;
+    left: 0;
+    width: 7vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+
+    &.ActiveMenu {
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.MenuBox {
+    margin-top: 35px;
+    width: 50px;
+    padding: 5px 0;
+    background-color: base.$header;
+    box-shadow: base.$shadow;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.MenuTip {
+    position: absolute;
+    left: calc(100% + 10px);
+    display: flex;
+    flex-direction: row;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+
+    span {
+        background-color: base.$violet-btn;
+        font-size: 12px;
+        padding-right: 10px;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        width: fit-content;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+}
+
+.MenuTab {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background-color .2s ease, box-shadow .2s ease;
+    position: relative;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: base.$violet-btn-hover;
+
+            .MenuTip {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.ChosenTab {
+        background-color: base.$violet-btn;
+    }
+
+    img {
+        width: 20px;
+    }
+}
+
+.MenuTab+.MenuTab {
+    margin-top: 25px;
+}
+
+.LogoTab {
+    background-color: base.$text;
+    background-color: base.$violet;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: base.$violet-light;
+        }
+    }
+}
