@@ -1,0 +1,106 @@
+@use '../../styles/base.scss';
+
+.ThemeAnimContainer {
+    width: 0;
+    height: 0;
+    left: -10000px;
+    top: -10000px;
+    position: fixed;
+    z-index: 1000;
+    transition: background-color .3s ease, opacity .3s ease;
+    opacity: 0;
+
+    &.Disable {
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100svh;
+        opacity: 0;
+    }
+
+    &.ToLight {
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100svh;
+        background-color: #ebebeb;
+        opacity: 1;
+    }
+
+    &.ToDark {
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100svh;
+        background-color: #181818;
+        opacity: 1;
+    }
+}
+
+.ThemeLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 190px;
+    position: absolute;
+    left: calc(50% - 95px);
+    top: 20px;
+
+    &.ToLight {
+        color: #181818;
+    }
+
+    &.ToDark {
+        color: #ebebeb;
+    }
+
+    img {
+        width: 40px;
+        margin-right: 12px;
+    }
+
+    span {
+        font-size: 22px;
+        font-weight: 700;
+    }
+}
+
+.ThemeAnimCircle {
+    position: absolute;
+    content: '';
+    top: 50vh;
+    left: -7.5vw;
+    width: 115vw;
+    height: 115vw;
+    border-radius: 150vw;
+    background-color: rgba(129, 129, 129, 0.1);
+    transition: transform .7s ease;
+
+    &.CircleAnim {
+        transform: rotate(-90deg);
+    }
+
+    img {
+        width: 10vw;
+        min-width: 80px;
+        position: absolute;
+        user-select: none;
+        right: calc(50% - 5vw);
+        top: -5vw;
+        transform: rotate(0);
+        transition: transform .7s ease;
+
+        &.ShowTheme {
+            right: -5vw;
+            top: calc(50% - 5vw);
+        }
+
+        &.Up {
+            transform: rotate(90deg);
+        }
+
+        &.Down {
+            transform: rotate(90deg);
+        }
+    }
+}

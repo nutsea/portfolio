@@ -2,8 +2,11 @@
 
 .MenuContainer {
     position: fixed;
+    z-index: 10;
     left: 0;
+    top: 0;
     width: 7vw;
+    max-width: 314px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,6 +78,11 @@
         background-color: base.$violet-btn;
     }
 
+    &.ChosenTabLight {
+        background-color: base.$text-stable;
+        box-shadow: inset 0 0 20px 2px rgba(base.$violet-btn, 0.5);
+    }
+
     img {
         width: 20px;
     }
@@ -92,5 +100,11 @@
         &:hover {
             background-color: base.$violet-light;
         }
+    }
+}
+
+@media (min-width: 2233px) {
+    .MenuContainer {
+        left: calc(50vw - 157px - 960px);
     }
 }

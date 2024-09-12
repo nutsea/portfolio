@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&display=swap');
 
-$text: #ebebeb;
-$header: #232323;
-$header-bg: rgba(#181818, 0.9);
-$shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
-$line: #232323;
-$border: #181818;
+:root {
+    --text: #191725;
+    --header: #F3F3F3;
+    --header-bg: rgba(0, 0, 0, 0);
+    --line: #E5E5E5;
+    --border: #ffffff;
+    --shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
 
-// $text: #191725;
-$text-stable: #191725;
+$text: var(--text);
+$header: var(--header);
+$header-bg: var(--header-bg);
+$line: var(--line);
+$border: var(--border);
+$shadow: var(--shadow);
+
+$text-stable: #181818;
 $text-half: rgba($text, 0.5);
-// $header: #F3F3F3;
-// $header-bg: rgba($header, 0.9);
-// $header: #181818;
 $violet-btn: #C6BDFC;
 $violet-btn-hover: rgba($violet-btn, 0.4);
-// $line: #E5E5E5;
-// $border: #ffffff;
-// $shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 $violet: #8576DF;
 $violet-light: #a094e8;
 $violet-mid: #413689;
@@ -53,8 +55,7 @@ a {
 }
 
 body {
-    // background-color: #ffffff;
-    background-color: #181818;
+    background-color: #ffffff;
     margin: 0;
     width: 100vw;
     min-height: 100vh;
@@ -62,6 +63,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &.DarkTheme {
+        background-color: #181818;
+    }
 }
 
 html {

@@ -5,6 +5,7 @@ export default class PageStore {
         this._page = '/'
         this._programmatically = false
         this._lightTheme = false
+        this._changingTheme = false
         makeAutoObservable(this)
     }
 
@@ -20,6 +21,10 @@ export default class PageStore {
         this._lightTheme = bool
     }
 
+    async setChangingTheme(bool) {
+        this._changingTheme = bool
+    }
+
     get page() {
         return this._page
     }
@@ -30,5 +35,9 @@ export default class PageStore {
 
     get lightTheme() {
         return this._lightTheme
+    }
+
+    get changingTheme() {
+        return this._changingTheme
     }
 }

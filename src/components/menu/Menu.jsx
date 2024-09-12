@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { forwardRef, useContext, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import './Menu.scss'
 import { Context } from "../..";
 
-import home from '../../assets/images/home_page4.svg'
-import about from '../../assets/images/about_page4.svg'
-import cases from '../../assets/images/cases_page4.svg'
-import services from '../../assets/images/services_page4.svg'
-import contacts from '../../assets/images/contacts_page4.svg'
+import home from '../../assets/images/home_page3.svg'
+import about from '../../assets/images/about_page3.svg'
+import cases from '../../assets/images/cases_page3.svg'
+import services from '../../assets/images/services_page3.svg'
+import contacts from '../../assets/images/contacts_page3.svg'
 
 import home2 from '../../assets/images/home_page.svg'
 import about2 from '../../assets/images/about_page.svg'
@@ -17,7 +17,8 @@ import contacts2 from '../../assets/images/contacts_page.svg'
 
 import arr from '../../assets/images/arr_tip.svg'
 
-export const Menu = observer(() => {
+export const Menu = observer(forwardRef((props, ref) => {
+    const { onPage } = props
     const { page } = useContext(Context)
     const [scrollPos, setScrollPos] = useState(0)
 
@@ -35,8 +36,8 @@ export const Menu = observer(() => {
     return (
         <div className={`MenuContainer ${scrollPos > 100 ? 'ActiveMenu' : ''}`}>
             <div className="MenuBox">
-                <div className={`MenuTab ${page.page === '/' ? 'ChosenTab' : ''}`} onClick={() => page.setPage('/')} >
-                    {page.lightTheme ?
+                <div className={`MenuTab ${page.page === '/' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/')} >
+                    {(page.lightTheme) ?
                         <img src={home} alt="" />
                         :
                         <img src={home2} alt="" />
@@ -46,8 +47,8 @@ export const Menu = observer(() => {
                         <span>Главная</span>
                     </div>
                 </div>
-                <div className={`MenuTab ${page.page === '/about' ? 'ChosenTab' : ''}`} onClick={() => page.setPage('/about')} >
-                    {page.lightTheme || page.page === '/about' ?
+                <div className={`MenuTab ${page.page === '/about' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/about')} >
+                    {(page.lightTheme) ?
                         <img src={about} alt="" />
                         :
                         <img src={about2} alt="" />
@@ -57,8 +58,8 @@ export const Menu = observer(() => {
                         <span>О нас</span>
                     </div>
                 </div>
-                <div className={`MenuTab ${page.page === '/cases' ? 'ChosenTab' : ''}`} onClick={() => page.setPage('/cases')} >
-                    {page.lightTheme ?
+                <div className={`MenuTab ${page.page === '/cases' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/cases')} >
+                    {(page.lightTheme) ?
                         <img src={cases} alt="" />
                         :
                         <img src={cases2} alt="" />
@@ -68,8 +69,8 @@ export const Menu = observer(() => {
                         <span>Кейсы</span>
                     </div>
                 </div>
-                <div className={`MenuTab ${page.page === '/pricing' ? 'ChosenTab' : ''}`} onClick={() => page.setPage('/pricing')} >
-                    {page.lightTheme ?
+                <div className={`MenuTab ${page.page === '/pricing' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/pricing')} >
+                    {(page.lightTheme) ?
                         <img src={services} alt="" />
                         :
                         <img src={services2} alt="" />
@@ -79,8 +80,8 @@ export const Menu = observer(() => {
                         <span>Тарифы</span>
                     </div>
                 </div>
-                <div className={`MenuTab ${page.page === '/contacts' ? 'ChosenTab' : ''}`} onClick={() => page.setPage('/contacts')} >
-                    {page.lightTheme ?
+                <div className={`MenuTab ${page.page === '/contacts' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/contacts')} >
+                    {(page.lightTheme) ?
                         <img src={contacts} alt="" />
                         :
                         <img src={contacts2} alt="" />
@@ -93,4 +94,4 @@ export const Menu = observer(() => {
             </div>
         </div>
     )
-})
+}))
