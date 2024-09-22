@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import './ThemeAnim.scss'
 
 import logo from '../../assets/images/logo.svg'
@@ -12,20 +12,24 @@ import { Context } from "../..";
 
 export const ThemeAnim = observer(() => {
     const { page } = useContext(Context)
+    const [logoColor, setLogoColor] = useState()
     const [icons, setIcons] = useState('')
     const [changeTo, setChangeTo] = useState('')
     const [circleAnim, setCircleAnim] = useState('')
     const [sunAnim, setSunAnim] = useState('')
     const [moonAnim, setMoonAnim] = useState('')
+    const isFirstRender = useRef(true)
 
     const switchToLightTheme = () => {
         const root = document.documentElement
-        root.style.setProperty('--text', '#191725')
+        // root.style.setProperty('--text', '#191725')
+        root.style.setProperty('--text', '#232323')
         root.style.setProperty('--header', '#F3F3F3')
         root.style.setProperty('--header-bg', 'rgba(0, 0, 0, 0)')
         root.style.setProperty('--line', '#E5E5E5')
         root.style.setProperty('--border', '#ffffff')
         root.style.setProperty('--shadow', '2px 2px 5px rgba(0, 0, 0, 0.1)')
+        root.style.setProperty('--prices', '#231C4C')
     }
 
     const switchToDarkTheme = () => {
@@ -36,11 +40,18 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--line', '#232323')
         root.style.setProperty('--border', '#181818')
         root.style.setProperty('--shadow', '2px 2px 5px rgba(0, 0, 0, 0.4)')
+        root.style.setProperty('--border', '#362c72')
     };
 
     useEffect(() => {
+        if (isFirstRender.current) {
+            isFirstRender.current = false
+            return
+        }
+
         if (!page.lightTheme) {
             page.setChangingTheme(false)
+            setLogoColor('Dark')
             setIcons('dark')
             setChangeTo('ToLight')
             setSunAnim('Up')
@@ -48,11 +59,12 @@ export const ThemeAnim = observer(() => {
             setCircleAnim('CircleAnim')
             setTimeout(() => {
                 page.setLightTheme(true)
-                document.body.classList.remove('DarkTheme')
+                document.body.classList.add('LightTheme')
                 switchToLightTheme()
                 setTimeout(() => {
                     setChangeTo('Disable')
                     setTimeout(() => {
+                        setLogoColor('')
                         setCircleAnim('')
                         setChangeTo('')
                         setSunAnim('')
@@ -62,6 +74,7 @@ export const ThemeAnim = observer(() => {
             }, 700)
         } else {
             page.setChangingTheme(false)
+            setLogoColor('Light')
             setIcons('light')
             setChangeTo('ToDark')
             setSunAnim('Down')
@@ -69,11 +82,12 @@ export const ThemeAnim = observer(() => {
             setCircleAnim('CircleAnim')
             setTimeout(() => {
                 page.setLightTheme(false)
-                document.body.classList.add('DarkTheme')
+                document.body.classList.remove('LightTheme')
                 switchToDarkTheme()
                 setTimeout(() => {
                     setChangeTo('Disable')
                     setTimeout(() => {
+                        setLogoColor('')
                         setCircleAnim('')
                         setChangeTo('')
                         setSunAnim('')
@@ -87,7 +101,7 @@ export const ThemeAnim = observer(() => {
 
     return (
         <div className={`ThemeAnimContainer ${changeTo}`}>
-            <div className={`ThemeLogo ${changeTo}`} onClick={() => page.setPage('/')}>
+            <div className={`ThemeLogo ${logoColor}`} onClick={() => page.setPage('/')}>
                 {icons === 'dark' ?
                     <img src={logo} alt="" />
                     :
