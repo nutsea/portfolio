@@ -1,7 +1,7 @@
 import React, { forwardRef, useContext } from "react";
 import './Header.scss'
 
-import logo from '../../assets/images/logo.svg'
+import logo from '../../assets/images/logotype.svg'
 import logo_white from '../../assets/images/logo_white.svg'
 import { observer } from "mobx-react-lite";
 import { Context } from "../..";

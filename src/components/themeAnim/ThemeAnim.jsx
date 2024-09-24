@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import './ThemeAnim.scss'
 
-import logo from '../../assets/images/logo.svg'
+import logo from '../../assets/images/logotype.svg'
 import logo_white from '../../assets/images/logo_white.svg'
 import sun from '../../assets/images/light_anim_light.svg'
 import sun2 from '../../assets/images/light_anim_dark.svg'
