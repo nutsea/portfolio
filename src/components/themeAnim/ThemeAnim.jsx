@@ -30,6 +30,10 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--border', '#ffffff')
         root.style.setProperty('--shadow', '2px 2px 5px rgba(0, 0, 0, 0.1)')
         root.style.setProperty('--prices', '#231C4C')
+        root.style.setProperty('--progress', '#8576DF')
+        root.style.setProperty('--inactive', '#afafaf')
+        root.style.setProperty('--check', '#8576DF')
+        root.style.setProperty('--submit', '#C6BDFC')
     }
 
     const switchToDarkTheme = () => {
@@ -41,6 +45,10 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--border', '#181818')
         root.style.setProperty('--shadow', '2px 2px 5px rgba(0, 0, 0, 0.4)')
         root.style.setProperty('--border', '#362c72')
+        root.style.setProperty('--progress', '#C6BDFC')
+        root.style.setProperty('--inactive', '#808080')
+        root.style.setProperty('--check', '#ffffff')
+        root.style.setProperty('--submit', '#ffffff')
     };
 
     useEffect(() => {

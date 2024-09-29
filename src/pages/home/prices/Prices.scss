@@ -1,4 +1,4 @@
-@use '../../styles/base.scss';
+@use '../../../styles/base.scss';
 
 .PricesContainer {
     padding: 35px;
@@ -201,12 +201,16 @@
     border-radius: 50px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease, transform 0.2s ease;
 
     @media (hover: hover) {
         &:hover {
             background-color: base.$violet-mid;
             color: white !important;
+        }
+
+        &:active {
+            transform: scale(0.98);
         }
     }
 

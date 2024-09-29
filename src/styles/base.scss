@@ -21,6 +21,10 @@
     --border: #181818;
     --shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
     --prices: #362c72;
+    --progress: #C6BDFC;
+    --inactive: #808080;
+    --check: #ffffff;
+    --submit: #ffffff;
 }
 
 $text: var(--text);
@@ -30,10 +34,13 @@ $line: var(--line);
 $border: var(--border);
 $shadow: var(--shadow);
 $prices: var(--prices);
+$progress: var(--progress);
+$inactive: var(--inactive);
+$check: var(--check);
+$submit: var(--submit);
 
 // $text-stable: #181818;
 $text-stable: #232323;
-$text-half: rgba($text, 0.5);
 $violet-btn: #C6BDFC;
 $violet-btn-hover: rgba($violet-btn, 0.4);
 $violet: #8576DF;
@@ -42,10 +49,28 @@ $violet-mid: #413689;
 $violet-dark: #231C4C;
 $banner: rgba($violet, 0.3);
 
+// html::-webkit-scrollbar,
+// body::-webkit-scrollbar {
+//     width: 0;
+//     display: none;
+// }
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
-    width: 0;
-    display: none;
+    width: 10px;
+    background-color: $header;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background-color: $violet-btn;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9fd;
+    transition: background-color 0.3s ease;
 }
 
 ul {

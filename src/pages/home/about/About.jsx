@@ -1,21 +1,21 @@
 import React, { forwardRef, useContext } from "react";
 import './About.scss'
 
-import about1_text from '../../assets/images/about1_text.png'
-import about1_text_dark from '../../assets/images/about1_text_dark.png'
-import about1_pic from '../../assets/images/about1_pic.png'
-import about2_text from '../../assets/images/about2_text.png'
-import about2_text_dark from '../../assets/images/about2_text_dark.png'
-import about2_pic from '../../assets/images/about2_pic.png'
-import about3_text from '../../assets/images/about3_text.png'
-import about3_text_dark from '../../assets/images/about3_text_dark.png'
-import about3_pic from '../../assets/images/about3_pic.png'
-import about4_text from '../../assets/images/about4_text.png'
-import about4_text_dark from '../../assets/images/about4_text_dark.png'
-import about4_pic from '../../assets/images/about4_pic.png'
-import rotate from '../../assets/images/rotate.svg'
+import about1_text from '../../../assets/images/about1_text.png'
+import about1_text_dark from '../../../assets/images/about1_text_dark.png'
+import about1_pic from '../../../assets/images/about1_pic.png'
+import about2_text from '../../../assets/images/about2_text.png'
+import about2_text_dark from '../../../assets/images/about2_text_dark.png'
+import about2_pic from '../../../assets/images/about2_pic.png'
+import about3_text from '../../../assets/images/about3_text.png'
+import about3_text_dark from '../../../assets/images/about3_text_dark.png'
+import about3_pic from '../../../assets/images/about3_pic.png'
+import about4_text from '../../../assets/images/about4_text.png'
+import about4_text_dark from '../../../assets/images/about4_text_dark.png'
+import about4_pic from '../../../assets/images/about4_pic.png'
+import rotate from '../../../assets/images/rotate.svg'
 import { observer } from "mobx-react-lite";
-import { Context } from "../..";
+import { Context } from "../../..";
 
 export const About = observer(forwardRef((props, ref) => {
     const { page } = useContext(Context)

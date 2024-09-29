@@ -1,15 +1,15 @@
 import React, { forwardRef } from "react";
 import './Main.scss'
 
-import dot from '../../assets/images/text_dot.svg'
-import arr from '../../assets/images/arr_black.svg'
-import star from '../../assets/images/star_black.svg'
-import star2 from '../../assets/images/star_white_big.svg'
-import tg from '../../assets/images/telegram.svg'
-import inst from '../../assets/images/inst.svg'
-import vk from '../../assets/images/vk.svg'
-import arr2 from '../../assets/images/arr_btn.svg'
-import diagram from '../../assets/images/diagram3.png'
+import dot from '../../../assets/images/text_dot.svg'
+import arr from '../../../assets/images/arr_black.svg'
+import star from '../../../assets/images/star_black.svg'
+import star2 from '../../../assets/images/star_white_big.svg'
+import tg from '../../../assets/images/telegram.svg'
+import inst from '../../../assets/images/inst.svg'
+import vk from '../../../assets/images/vk.svg'
+import arr2 from '../../../assets/images/arr_btn.svg'
+import diagram from '../../../assets/images/diagram3.png'
 
 export const Main = forwardRef((props, ref) => {
     return (

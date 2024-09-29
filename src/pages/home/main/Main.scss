@@ -1,4 +1,4 @@
-@use '../../styles/base.scss';
+@use '../../../styles/base.scss';
 
 .MainContainer {
     width: 100%;
@@ -56,7 +56,7 @@
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s ease, opacity 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
     box-shadow: base.$shadow;
 
     img {
@@ -66,14 +66,16 @@
 
     @media (hover: hover) {
         &:hover {
-            // background-color: base.$violet-btn-hover;
             opacity: 0.7;
+        }
+
+        &:active {
+            transform: scale(0.98);
         }
     }
 
     @media (pointer: coarse) {
         &:active {
-            // background-color: base.$violet-btn-hover;
             opacity: 0.7;
         }
     }
@@ -93,7 +95,7 @@
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s ease, opacity 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease;
     box-shadow: base.$shadow;
 
     img {
@@ -103,14 +105,16 @@
 
     @media (hover: hover) {
         &:hover {
-            // background-color: base.$violet-btn-hover;
             opacity: 0.7;
+        }
+
+        &:active {
+            transform: scale(0.98);
         }
     }
 
     @media (pointer: coarse) {
         &:active {
-            // background-color: base.$violet-btn-hover;
             opacity: 0.7;
         }
     }
@@ -183,7 +187,7 @@
 .MainInfoDigitTip {
     font-size: 16px;
     font-weight: 400;
-    color: base.$text-half;
+    opacity: 0.5;
 }
 
 .MainInfoSlogan {
@@ -240,7 +244,7 @@
     justify-content: space-between;
     overflow: hidden;
     border-radius: 36px;
-    background-image: url('../../assets/images/cubes.JPEG');
+    background-image: url('../../../assets/images/cubes.JPEG');
     background-position: center;
     background-size: cover;
 }
@@ -402,14 +406,17 @@
     background-color: white;
     color: base.$text-stable;
     border-radius: 50px;
-    // box-shadow: base.$shadow;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 
     @media (hover: hover) {
         &:hover {
             background-color: base.$violet-btn;
+        }
+
+        &:active {
+            transform: scale(0.98);
         }
     }
 

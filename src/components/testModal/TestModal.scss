@@ -1,0 +1,435 @@
+@use '../../styles/base.scss';
+
+.TestModal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100vw;
+    height: 100svh;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+
+    &.Show {
+        display: flex;
+    }
+
+    &.Background {
+        background-color: rgba(black, 0.8);
+        backdrop-filter: blur(5px);
+    }
+}
+
+.TestBox {
+    width: 400px;
+    height: fit-content;
+    background-color: base.$header;
+    border-radius: 16px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transform: translateY(100vh);
+    transition: transform 0.3s ease;
+
+    &.Position {
+        transform: translateY(0);
+    }
+}
+
+.TestBoxTop {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.TestSub {
+    color: base.$text;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 34px;
+}
+
+.TestSub2 {
+    color: base.$text;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.TestClose {
+    color: base.$text;
+    cursor: pointer;
+}
+
+.TestInteractive {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.TestQuestion {
+    color: base.$text;
+    color: #808080;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.TestAnswer {
+    color: base.$text;
+    font-size: 14px;
+    font-weight: 500;
+    height: 34px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+        .TestCheckbox {
+            &::before {
+                background-color: base.$check;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+.TestOtherAnswer {
+    margin-top: 10px;
+}
+
+.TestCheckbox {
+    width: 16px;
+    height: 16px;
+    border: solid 1px #808080;
+    border-radius: 15px;
+    margin-right: 10px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        left: calc(50% - 6px);
+        top: calc(50% - 6px);
+        border-radius: 12px;
+        opacity: 0.5;
+        transition: background-color 0.1s ease, opacity 0.2s ease;
+    }
+
+    &.Checked {
+        &::before {
+            background-color: base.$check !important;
+            opacity: 1 !important;
+        }
+    }
+}
+
+.TestInputBox {
+    position: relative;
+}
+
+.TestInputBox+.TestInputBox {
+    margin-top: 20px;
+}
+
+.TestInput {
+    padding: 12px 20px;
+    width: calc(100% - 42px);
+    border: solid 1px #808080;
+    background-color: rgba(#808080, 0.0);
+    color: base.$text;
+    font-size: 14px;
+    border-radius: 10px;
+    outline: none;
+    font-family: 'Manrope', sans-serif;
+}
+
+.TestInputPlaceholder {
+    position: absolute;
+    left: 10px;
+    top: -8px;
+    background-color: base.$header;
+    color: #808080;
+    font-size: 12px;
+    padding: 0 3px;
+    border-radius: 10px;
+}
+
+.TestInput+.TestInput {
+    margin-top: 10px;
+}
+
+.TestBottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.TestNext {
+    height: 46px;
+    width: fit-content;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background-color: base.$inactive;
+    pointer-events: none;
+    color: base.$text-stable;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.3s ease;
+    box-shadow: base.$shadow;
+
+    img {
+        margin-left: 16px;
+        margin-top: 2px;
+    }
+
+    &.Active {
+        background-color: base.$violet-btn;
+        pointer-events: all;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            opacity: 0.7;
+        }
+    }
+}
+
+.TestProgress {
+    color: base.$text;
+    font-size: 12px;
+}
+
+.TestProgressBar {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(#808080, 0.2);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: opacity 0.5s ease;
+
+    span {
+        position: absolute;
+        height: 3px;
+        background-color: base.$progress;
+        border-radius: 3px;
+        transition: width 0.5s ease;
+    }
+
+    &.Disable {
+        opacity: 0;
+    }
+}
+
+.AfterTestLine {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(#808080, 0.3);
+    margin: 30px 0 20px 0;
+}
+
+.TestConfirmation {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 12px;
+    color: base.$text;
+    color: #808080;
+}
+
+.TestConfirmCheckbox {
+    width: 16px;
+    height: 16px;
+    border: solid 1px #808080;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    * {
+        color: base.$text;
+        opacity: 0;
+    }
+
+    &.Checked {
+        * {
+            opacity: 1;
+        }
+    }
+}
+
+.TestRequired {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #808080;
+}
+
+.TestLink {
+    color: base.$violet !important;
+    cursor: pointer;
+
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            text-decoration: underline;
+        }
+    }
+}
+
+.TestSubmit {
+    margin-top: 20px;
+    padding: 12px 20px;
+    width: calc(100% - 40px);
+    background-color: base.$inactive;
+    background-color: base.$submit;
+    background-color: base.$violet-btn;
+    background-color: base.$inactive;
+    pointer-events: none;
+    font-weight: 500;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.3s ease;
+
+    &.Active {
+        background-color: base.$violet-btn;
+        pointer-events: all;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            opacity: 0.7;
+        }
+    }
+}
+
+.TestSent {
+    position: absolute;
+    transition: opacity 0.3s ease;
+
+    &.Invisible {
+        opacity: 0;
+    }
+
+    &.Disable {
+        opacity: 0;
+    }
+
+    svg {
+        width: 100px;
+        display: block;
+        margin: 40px auto 0;
+    }
+
+    .path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+
+        &.circle {
+            -webkit-animation: dash .9s ease-in-out;
+            animation: dash .9s ease-in-out;
+        }
+
+        &.line {
+            stroke-dashoffset: 1000;
+            -webkit-animation: dash .9s .35s ease-in-out forwards;
+            animation: dash .9s .35s ease-in-out forwards;
+        }
+
+        &.check {
+            stroke-dashoffset: -100;
+            -webkit-animation: dash-check .9s .35s ease-in-out forwards;
+            animation: dash-check .9s .35s ease-in-out forwards;
+        }
+    }
+
+    circle, polyline {
+        stroke: base.$violet-btn;
+    }
+
+    @-webkit-keyframes dash {
+        0% {
+            stroke-dashoffset: 1000;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes dash {
+        0% {
+            stroke-dashoffset: 1000;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @-webkit-keyframes dash-check {
+        0% {
+            stroke-dashoffset: -100;
+        }
+
+        100% {
+            stroke-dashoffset: 900;
+        }
+    }
+
+    @keyframes dash-check {
+        0% {
+            stroke-dashoffset: -100;
+        }
+
+        100% {
+            stroke-dashoffset: 900;
+        }
+    }
+}

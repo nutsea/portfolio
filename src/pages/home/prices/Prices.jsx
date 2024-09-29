@@ -1,9 +1,12 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext } from "react";
 import './Prices.scss'
 
-import point from '../../assets/images/point.svg'
+import point from '../../../assets/images/point.svg'
+import { Context } from "../../..";
+import { observer } from "mobx-react-lite";
 
-export const Prices = forwardRef((props, ref) => {
+export const Prices = observer(forwardRef((props, ref) => {
+    const { page } = useContext(Context)
 
     return (
         <div className="PageContainer" ref={ref}>
@@ -42,7 +45,7 @@ export const Prices = forwardRef((props, ref) => {
                         </div>
                         <div className="PriceCardBottom">
                             <div className="PriceCardTime">Срок: от 5 дней</div>
-                            <div className="PriceCardBtn">Рассчитать</div>
+                            <div className="PriceCardBtn" onClick={() => page.setTesting(true)}>Рассчитать</div>
                         </div>
                     </div>
                     <div className="PriceCard">
@@ -79,7 +82,7 @@ export const Prices = forwardRef((props, ref) => {
                         </div>
                         <div className="PriceCardBottom">
                             <div className="PriceCardTime">Срок: от 15 дней</div>
-                            <div className="PriceCardBtn">Рассчитать</div>
+                            <div className="PriceCardBtn" onClick={() => page.setTesting(true)}>Рассчитать</div>
                         </div>
                     </div>
                     <div className="PriceCard">
@@ -124,7 +127,7 @@ export const Prices = forwardRef((props, ref) => {
                         </div>
                         <div className="PriceCardBottom">
                             <div className="PriceCardTime">Срок: от 30 дней</div>
-                            <div className="PriceCardBtn">Рассчитать</div>
+                            <div className="PriceCardBtn" onClick={() => page.setTesting(true)}>Рассчитать</div>
                         </div>
                     </div>
                 </div>
@@ -163,11 +166,11 @@ export const Prices = forwardRef((props, ref) => {
                         </div>
                         <div className="OnePriceCardBottom">
                             <div className="PriceCardTime">Срок: по договоренности</div>
-                            <div className="PriceCardBtn">Рассчитать</div>
+                            <div className="PriceCardBtn" onClick={() => page.setTesting(true)}>Рассчитать</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     )
-})
+}))
