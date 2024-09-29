@@ -25,6 +25,8 @@
     --inactive: #808080;
     --check: #ffffff;
     --submit: #ffffff;
+    // --light-btn-bg: rgba(#ffffffb3, 0.7);
+    --light-btn-bg: #ffffffb3;
 }
 
 $text: var(--text);
@@ -38,6 +40,7 @@ $progress: var(--progress);
 $inactive: var(--inactive);
 $check: var(--check);
 $submit: var(--submit);
+$light-btn-bg: var(--light-btn-bg);
 
 // $text-stable: #181818;
 $text-stable: #232323;

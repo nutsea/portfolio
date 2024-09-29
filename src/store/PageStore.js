@@ -7,6 +7,7 @@ export default class PageStore {
         this._lightTheme = false
         this._changingTheme = false
         this._testing = false
+        this._contacting = false
         makeAutoObservable(this)
     }
 
@@ -30,6 +31,10 @@ export default class PageStore {
         this._testing = bool
     }
 
+    async setContacting(bool) {
+        this._contacting = bool
+    }
+
     get page() {
         return this._page
     }
@@ -48,5 +53,9 @@ export default class PageStore {
 
     get testing() {
         return this._testing
+    }
+
+    get contacting() {
+        return this._contacting
     }
 }

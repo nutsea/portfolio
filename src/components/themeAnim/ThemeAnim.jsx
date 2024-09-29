@@ -34,6 +34,7 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--inactive', '#afafaf')
         root.style.setProperty('--check', '#8576DF')
         root.style.setProperty('--submit', '#C6BDFC')
+        root.style.setProperty('--light-btn-bg', '#C6BDFC66')
     }
 
     const switchToDarkTheme = () => {
@@ -48,7 +49,7 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--progress', '#C6BDFC')
         root.style.setProperty('--inactive', '#808080')
         root.style.setProperty('--check', '#ffffff')
-        root.style.setProperty('--submit', '#ffffff')
+        root.style.setProperty('--light-btn-bg', '#ffffffb3')
     };
 
     useEffect(() => {

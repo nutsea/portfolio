@@ -10,11 +10,11 @@ export const sendOrder = async (testUser, name, phone, telegram) => {
                 `Имя: ${name}\n` +
                 `Номер: ${phone}\n` +
                 `${telegram ? `Telegram: ${telegram}\n` : ''}` +
-                `\n${testUser[0] && testUser[0].length > 0 ? `▫️ *Какой тип сайта вам нужен?*\n_${testUser[0]}_\n\n` : ''}` +
-                `${testUser[1] && testUser[1].length > 0 ? `▫️ *Какие функции вы ожидаете от сайта*\n_${testUser[1]}_\n\n` : ''}` +
-                `▫️ *Какой у вас бюджет на создание сайта?*\n_${testUser[2]}_\n\n` +
-                `▫️ *Какие сроки у вас для запуска проекта?*\n_${testUser[3]}_\n\n` +
-                `▫️ *Есть ли у вас предпочтения по дизайну?*\n_${testUser[4]}_`,
+                `\n${testUser[0] && testUser[0] !== 'Другой вариант' ? `▫️ *Какой тип сайта вам нужен?*\n_${testUser[0]}_\n\n` : ''}` +
+                `${testUser[1] && testUser[1] !== 'Другой вариант' ? `▫️ *Какие функции вы ожидаете от сайта*\n_${testUser[1]}_\n\n` : ''}` +
+                `${testUser[2] ? `▫️ *Какой у вас бюджет на создание сайта?*\n_${testUser[2]}_\n\n` : ''}` +
+                `${testUser[3] ? `▫️ *Какие сроки у вас для запуска проекта?*\n_${testUser[3]}_\n\n` : ''}` +
+                `${testUser[4] ? `▫️ *Есть ли у вас предпочтения по дизайну?*\n_${testUser[4]}_` : ''}`,
             parse_mode: 'Markdown'
         }),
     })

@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useContext } from "react";
 import './Main.scss'
 
 import dot from '../../../assets/images/text_dot.svg'
@@ -10,8 +10,11 @@ import inst from '../../../assets/images/inst.svg'
 import vk from '../../../assets/images/vk.svg'
 import arr2 from '../../../assets/images/arr_btn.svg'
 import diagram from '../../../assets/images/diagram3.png'
+import { Context } from "../../..";
 
 export const Main = forwardRef((props, ref) => {
+    const { page } = useContext(Context)
+
     return (
         <div className="PageContainer" ref={ref}>
             <div className="MainContainer">
@@ -33,7 +36,7 @@ export const Main = forwardRef((props, ref) => {
                             <span>Кейсы</span>
                             <img src={arr} alt="" />
                         </div>
-                        <div className="MainInfoContactBtn">
+                        <div className="MainInfoContactBtn" onClick={() => page.setContacting(true)}>
                             <span>Связаться с нами</span>
                             <img src={star} alt="" />
                         </div>

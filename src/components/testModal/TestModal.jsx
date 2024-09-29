@@ -79,6 +79,7 @@ export const TestModal = observer(() => {
     const handleClose = (e) => {
         if (!e.target.closest('.TestBox') || e.target.closest('.TestClose')) {
             page.setTesting(false)
+            page.setContacting(false)
         }
     }
 
@@ -214,6 +215,7 @@ export const TestModal = observer(() => {
             setTestSent(true)
             setTimeout(() => {
                 page.setTesting(false)
+                page.setContacting(false)
                 setTimeout(() => {
                     setTestSent(false)
                     setName('')
@@ -226,7 +228,7 @@ export const TestModal = observer(() => {
     }
 
     useEffect(() => {
-        if (page.testing) {
+        if (page.testing || page.contacting) {
             document.querySelector('.TestModal').classList.add('Show')
             setTimeout(() => {
                 document.querySelector('.TestModal').classList.add('Background')
@@ -240,6 +242,25 @@ export const TestModal = observer(() => {
                 document.querySelector('.TestModal').classList.remove('Show')
             }, 300)
         }
+    }, [page.testing, page.contacting])
+
+    useEffect(() => {
+        if (page.contacting) {
+            page.setTesting(false)
+            setTestStep(5)
+            document.querySelector('.TestProgressBar').classList.add('None')
+        } // eslint-disable-next-line
+    }, [page.contacting])
+
+    useEffect(() => {
+        if (page.testing) {
+            page.setContacting(false)
+            setTestStep(0)
+            document.querySelector('.TestProgressBar').classList.remove('None')
+            setTimeout(() => {
+                document.querySelector('.TestProgressBar').classList.remove('Disable')
+            }, 500)
+        } // eslint-disable-next-line
     }, [page.testing])
 
     useEffect(() => {

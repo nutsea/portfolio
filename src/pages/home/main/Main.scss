@@ -95,7 +95,7 @@
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
     box-shadow: base.$shadow;
 
     img {
@@ -105,7 +105,8 @@
 
     @media (hover: hover) {
         &:hover {
-            opacity: 0.7;
+            // opacity: 0.7;
+            background-color: base.$light-btn-bg;
         }
 
         &:active {
@@ -115,7 +116,8 @@
 
     @media (pointer: coarse) {
         &:active {
-            opacity: 0.7;
+            // opacity: 0.7;
+            background-color: base.$light-btn-bg;
         }
     }
 }
