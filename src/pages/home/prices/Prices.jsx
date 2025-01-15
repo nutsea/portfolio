@@ -1,7 +1,6 @@
 import React, { forwardRef, useContext } from "react";
 import './Prices.scss'
 
-import point from '../../../assets/images/point.svg'
 import point2 from '../../../assets/images/polygon.svg'
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
