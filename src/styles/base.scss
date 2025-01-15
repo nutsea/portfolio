@@ -18,6 +18,7 @@
     --header: #232323;
     --header-bg: rgba(#181818, 0.9);
     --line: #232323;
+    --line-bright: #333333;
     --border: #181818;
     --shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
     --prices: #362c72;
@@ -25,14 +26,18 @@
     --inactive: #808080;
     --check: #ffffff;
     --submit: #ffffff;
-    // --light-btn-bg: rgba(#ffffffb3, 0.7);
     --light-btn-bg: #ffffffb3;
+    --orange-flex: #ffb168;
+    --background: #181818;
+    --violet-flex: #a094e8;
+    --error-flex: #ffb168;
 }
 
 $text: var(--text);
 $header: var(--header);
 $header-bg: var(--header-bg);
 $line: var(--line);
+$line-bright: var(--line-bright);
 $border: var(--border);
 $shadow: var(--shadow);
 $prices: var(--prices);
@@ -41,22 +46,29 @@ $inactive: var(--inactive);
 $check: var(--check);
 $submit: var(--submit);
 $light-btn-bg: var(--light-btn-bg);
+$orange-flex: var(--orange-flex);
+$background: var(--background);
+$violet-flex: var(--violet-flex);
+$error-flex: var(--error-flex);
 
-// $text-stable: #181818;
 $text-stable: #232323;
 $violet-btn: #C6BDFC;
 $violet-btn-hover: rgba($violet-btn, 0.4);
+$violet-btn-hover-light: #e1dcff;
+$violet-lightest: #f6f5ff;
 $violet: #8576DF;
 $violet-light: #a094e8;
 $violet-mid: #413689;
+$violet-mid-hover: #544d87;
 $violet-dark: #231C4C;
-$banner: rgba($violet, 0.3);
-
-// html::-webkit-scrollbar,
-// body::-webkit-scrollbar {
-//     width: 0;
-//     display: none;
-// }
+$violet-dark-light: rgba($violet-dark, 0.6);
+$violet-dark-light2: rgba($violet-dark, 0.8);
+$violet-dark-light3: rgba($violet-dark, 0.7);
+$violet-card: #6a5db1;
+$banner: rgba($violet-dark, 0.7);
+$orange: #ff7b00;
+$orange-light: #ffb168;
+$orange-very-light: #ffd7b2;
 
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
@@ -71,7 +83,7 @@ body::-webkit-scrollbar-thumb {
 
 html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
     background-color: #f9f9fd;
     transition: background-color 0.3s ease;
 }
@@ -119,71 +131,4 @@ body {
 html {
     width: 100vw;
     overflow-x: hidden;
-}
-
-.loader {
-    width: 48px;
-    height: 48px;
-    margin: auto;
-    position: relative;
-}
-
-.loader:before {
-    content: '';
-    width: 48px;
-    height: 5px;
-    background: #000;
-    opacity: 0.25;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    border-radius: 50%;
-    animation: shadow 0.5s linear infinite;
-}
-
-.loader:after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: #252525;
-    animation: bxSpin 0.5s linear infinite;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 4px;
-}
-
-@keyframes bxSpin {
-    17% {
-        border-bottom-right-radius: 3px;
-    }
-
-    25% {
-        transform: translateY(9px) rotate(22.5deg);
-    }
-
-    50% {
-        transform: translateY(18px) scale(1, .9) rotate(45deg);
-        border-bottom-right-radius: 40px;
-    }
-
-    75% {
-        transform: translateY(9px) rotate(67.5deg);
-    }
-
-    100% {
-        transform: translateY(0) rotate(90deg);
-    }
-}
-
-@keyframes shadow {
-
-    0%,
-    100% {
-        transform: scale(1, 1);
-    }
-
-    50% {
-        transform: scale(1.2, 1);
-    }
 }

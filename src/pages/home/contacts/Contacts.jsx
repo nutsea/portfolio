@@ -1,0 +1,178 @@
+import React, { forwardRef, useState } from "react"
+import './Contacts.scss'
+import { emailValidation, formatBackspace, formatPhoneNumber } from "../../../utils/Formatter"
+import { sendOrder } from "../../../http/botAPI"
+import { DoneAnimation } from "../../../components/doneAnimation/DoneAnimation"
+
+import call from './icons/call.png'
+import mail from './icons/mail.png'
+import tg from './icons/tg.png'
+import whatsapp from './icons/whatsapp.png'
+import { IoCheckmark } from "react-icons/io5"
+
+export const Contacts = forwardRef((props, ref) => {
+    const [name, setName] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
+    const [telegram, setTelegram] = useState('')
+    const [email, setEmail] = useState('')
+    const [email2, setEmail2] = useState('')
+    const [message, setMessage] = useState('')
+    const [status, setStatus] = useState('')
+    const [error, setError] = useState('')
+    const [privacyChecked, setPrivacyChecked] = useState(true)
+
+    const handlePhone = (e) => {
+        const formattedNumber = formatPhoneNumber(e)
+        setPhoneNumber(formattedNumber)
+    }
+
+    const handleBackspace = (e) => {
+        if (e.keyCode === 8 || e.key === 'Backspace') {
+            const formattedNumber = formatBackspace(e).formattedNumber
+            const isEmpty = formatBackspace(e).isEmpty
+            if (!isEmpty) setPhoneNumber('+7 ' + formattedNumber)
+            else setPhoneNumber(formattedNumber)
+        }
+    }
+
+    const sendMessage = async () => {
+        if (name.length === 0 || phoneNumber.length === 0 || !privacyChecked) {
+            setError(true)
+            setStatus('Заполните все обязательные поля')
+            return
+        }
+
+        if (phoneNumber.length < 18) {
+            setError(true)
+            setStatus('Некорректный номер телефона')
+            return
+        }
+
+        if (!emailValidation(email) && email.length > 0) {
+            setError(true)
+            setStatus('Некорректный E-mail')
+            return
+        }
+
+        if ((email.length === 0 && phoneNumber.length === 18) || (emailValidation(email) && phoneNumber.length === 18)) {
+            setError(false)
+            setStatus(<DoneAnimation />)
+        }
+
+        const timeoutPromise = (ms) => new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), ms))
+
+        try {
+            await Promise.race([
+                await sendOrder(null, name, phoneNumber, telegram, email, message).then(() => {
+                    setName('')
+                    setPhoneNumber('')
+                    setTelegram('')
+                    setEmail('')
+                    setMessage('')
+
+                    document.getElementById('circle')?.classList.add('Sent')
+                    document.getElementById('polyline')?.classList.add('Sent')
+                    setTimeout(() => {
+                        document.getElementById('rotate')?.classList.remove('Rotate')
+                        setTimeout(() => {
+                            document.getElementById('done')?.classList.add('Disable')
+                            setTimeout(() => {
+                                setStatus('')
+                            }, 900);
+                        }, 3000)
+                    }, 900)
+                }),
+                timeoutPromise(20000)
+            ])
+        } catch (e) {
+            setError(true)
+            setStatus('Произошла ошибка')
+        }
+    }
+
+    return (
+        <div className="PageContainer" ref={ref}>
+            <div className="ContactsRow">
+                <div className="SendForm">
+                    <div className="ContactsSub">Свяжитесь с нами</div>
+                    <div className="SendFormRow">
+                        <div className="ContactsInputBox">
+                            <input className="ContactsInput" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                            <label className={`ContactsInputPlaceholder ${name && name.length > 0 ? '' : 'ContactsCanTransform'}`}>Имя*</label>
+                        </div>
+                        <div className="ContactsInputBox">
+                            <input className="ContactsInput" type="text" value={phoneNumber} maxLength={18} onChange={handlePhone} onKeyDown={handleBackspace} />
+                            <label className={`ContactsInputPlaceholder ${phoneNumber && phoneNumber.length > 0 ? '' : 'ContactsCanTransform'}`}>Номер телефона*</label>
+                        </div>
+                    </div>
+                    <div className="SendFormRow">
+                        <div className="ContactsInputBox">
+                            <input className="ContactsInput" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <label className={`ContactsInputPlaceholder ${email && email.length > 0 ? '' : 'ContactsCanTransform'}`}>Электронная почта</label>
+                        </div>
+                        <div className="ContactsInputBox">
+                            <input className="ContactsInput" type="text" value={telegram} onChange={(e) => setTelegram(e.target.value)} />
+                            <label className={`ContactsInputPlaceholder ${telegram && telegram.length > 0 ? '' : 'ContactsCanTransform'}`}>Telegram</label>
+                        </div>
+                    </div>
+                    <div className="ContactsInputBoxBig">
+                        <textarea className="ContactsInput" type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
+                        <label className={`ContactsInputPlaceholder ${message && message.length > 0 ? '' : 'ContactsCanTransform'}`}>Сообщение</label>
+                    </div>
+                    <div className="TestConfirmation">
+                        <div className={`TestConfirmCheckbox ${privacyChecked ? 'Checked' : ''}`} onClick={() => setPrivacyChecked(!privacyChecked)}>
+                            <IoCheckmark size={16} />
+                        </div>
+                        <span>Я согласен(-на) с&nbsp;</span>
+                        <a className="TestLink" href={`${window.location.origin}/privacy`} target="_blank" rel="noreferrer">политикой конфиденциальности</a>
+                        <span>*</span>
+                    </div>
+                    <div className="TestRequired">* - обязатальные поля</div>
+                    <div className="ContactsSendRow">
+                        <div className="ContactsSendBtn" onClick={sendMessage}>Отправить</div>
+                        <div className={`ContactsStatus ${error ? 'Error' : ''}`}>{status}</div>
+                    </div>
+                </div>
+                <div className="MailSubscribe">
+                    <div className="MailSubscribeSub">Наши Новости</div>
+                    <div className="MailSubscribePar">Подписывайся на рассылку, чтобы получать новости, полезные советы и эксклюзивные предложения первым!</div>
+                    <div className="NewsInputBox">
+                        <input className="ContactsInput" type="text" value={email2} onChange={(e) => setEmail2(e.target.value)} />
+                        <label className={`ContactsInputPlaceholder ${email2 && email2.length > 0 ? '' : 'ContactsCanTransform'}`}>Электронная почта</label>
+                    </div>
+                    <div className="NewsSendBtn">Отправить</div>
+                </div>
+            </div>
+            <div className="ContactsCards">
+                <div className="ContactCard First">
+                    <div className="ContactCardTop">
+                        <img src={call} alt="" />
+                        <a href="tel:79953682131">+7 (995) 368 21-31</a>
+                    </div>
+                    <div className="ContactCardPar">Свяжитесь с нами по телефону, и мы ответим на все ваши вопросы</div>
+                </div>
+                <div className="ContactCard Second">
+                    <div className="ContactCardTop">
+                        <img src={mail} alt="" />
+                        <a href="mailto:batyrova.n@icloud.com">batyrova.n@icloud.com</a>
+                    </div>
+                    <div className="ContactCardPar">Напишите нам на почту — отправьте свои идеи, запросы или вопросы</div>
+                </div>
+                <div className="ContactCard Third">
+                    <div className="ContactCardTop">
+                        <img src={whatsapp} alt="" />
+                        <a href="https://wa.me/79953682131" target="_blank" rel="noreferrer">WebPromise</a>
+                    </div>
+                    <div className="ContactCardPar">Напишите нам в WhatsApp — обсудим ваши вопросы и идеи прямо сейчас</div>
+                </div>
+                <div className="ContactCard Fourth">
+                    <div className="ContactCardTop">
+                        <img src={tg} alt="" />
+                        <a href="https://t.me/webpromise" target="_blank" rel="noreferrer">@webpromise</a>
+                    </div>
+                    <div className="ContactCardPar">Задайте вопрос или оставьте заявку в Telegram</div>
+                </div>
+            </div>
+        </div>
+    )
+})

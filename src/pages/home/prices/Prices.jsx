@@ -2,6 +2,7 @@ import React, { forwardRef, useContext } from "react";
 import './Prices.scss'
 
 import point from '../../../assets/images/point.svg'
+import point2 from '../../../assets/images/polygon.svg'
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 
@@ -15,9 +16,9 @@ export const Prices = observer(forwardRef((props, ref) => {
                     <span>Тарифы</span>
                 </div>
                 <div className="PricesBox">
-                    <div className="PriceCard">
+                    <div className={`PriceCard ${page.rate === 'landing' ? 'Focused' : ''}`}>
                         <div className="PriceCardTop">
-                            <div className="PriceCardSub">Landing</div>
+                            <div className="PriceCardSub">Base</div>
                             <div className="PriceCardDescription">Для тех, кто только начинает онлайн-деятельность</div>
                             <div className="PriceCardPrice">
                                 <span className="PriceTip">от</span>
@@ -26,19 +27,19 @@ export const Prices = observer(forwardRef((props, ref) => {
                             <div className="PriceLine"></div>
                             <div className="PriceCardPoints">
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Одностраничный сайт (лендинг)</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>2 типа верстки (ПК и мобильная версия)</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
-                                    <span>SEO-оптимизация начального уровня</span>
+                                    <img src={point2} alt="" />
+                                    <span>Базовая SEO-оптимизация</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Подключение формы обратной связи</span>
                                 </div>
                             </div>
@@ -48,7 +49,7 @@ export const Prices = observer(forwardRef((props, ref) => {
                             <div className="PriceCardBtn" onClick={() => page.setTesting(true)}>Рассчитать</div>
                         </div>
                     </div>
-                    <div className="PriceCard">
+                    <div className={`PriceCard ${page.rate === 'optimum' ? 'Focused' : ''}`}>
                         <div className="PriceCardTop">
                             <div className="PriceCardSub">Optimum</div>
                             <div className="PriceCardDescription">Оптимальный выбор для малого и среднего бизнеса</div>
@@ -59,23 +60,23 @@ export const Prices = observer(forwardRef((props, ref) => {
                             <div className="PriceLine"></div>
                             <div className="PriceCardPoints">
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Многостраничный сайт (интернет-магазин / блог)</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Адаптивная верстка под все устройства</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>SEO-оптимизация</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Подключение формы обратной связи</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Панель для управления контентом и заказами</span>
                                 </div>
                             </div>
@@ -85,7 +86,7 @@ export const Prices = observer(forwardRef((props, ref) => {
                             <div className="PriceCardBtn" onClick={() => page.setTesting(true)}>Рассчитать</div>
                         </div>
                     </div>
-                    <div className="PriceCard">
+                    <div className={`PriceCard ${page.rate === 'premium' ? 'Focused' : ''}`}>
                         <div className="PriceCardTop">
                             <div className="PriceCardSub">Premium</div>
                             <div className="PriceCardDescription">Для крупных проектов и нестандартных задач</div>
@@ -96,31 +97,31 @@ export const Prices = observer(forwardRef((props, ref) => {
                             <div className="PriceLine"></div>
                             <div className="PriceCardPoints">
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Разработка веб-приложения или сложного сайта под ключ</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Адаптивная верстка под все устройства</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Создание аккаунтов и личных кабинетов</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Интеграция сторонних API</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>SEO-оптимизация</span>
                                 </div>
                                 <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Внутренняя CRM для управления всеми процессами и контентом</span>
                                 </div>
                                 {/* <div className="PriceCardPoint">
-                                    <img src={point} alt="" />
+                                    <img src={point2} alt="" />
                                     <span>Поддержка и сопровождение после запуска</span>
                                 </div> */}
                             </div>
@@ -131,29 +132,29 @@ export const Prices = observer(forwardRef((props, ref) => {
                         </div>
                     </div>
                 </div>
-                <div className="PriceCard OnePriceCard">
+                <div className={`PriceCard OnePriceCard ${page.rate === 'support' ? 'Focused' : ''}`}>
                     <div className="PriceCardTop">
                         <div className="PriceCardSub">Support</div>
                         <div className="PriceCardDescription">Для тех, у кого уже есть сайт, но нужна помощь в его доработке и поддержке</div>
                         <div className="PriceCardPoints">
                             <div className="PriceCardPoint">
-                                <img src={point} alt="" />
+                                <img src={point2} alt="" />
                                 <span>Техническое обслуживание</span>
                             </div>
                             <div className="PriceCardPoint">
-                                <img src={point} alt="" />
+                                <img src={point2} alt="" />
                                 <span>Доработка функционала</span>
                             </div>
                             <div className="PriceCardPoint">
-                                <img src={point} alt="" />
+                                <img src={point2} alt="" />
                                 <span>Оптимизация скорости загрузки</span>
                             </div>
                             <div className="PriceCardPoint">
-                                <img src={point} alt="" />
+                                <img src={point2} alt="" />
                                 <span>Обновление контента</span>
                             </div>
                             <div className="PriceCardPoint">
-                                <img src={point} alt="" />
+                                <img src={point2} alt="" />
                                 <span>Консультации и помощь по вопросам работы сайта</span>
                             </div>
                         </div>

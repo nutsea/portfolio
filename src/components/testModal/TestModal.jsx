@@ -4,12 +4,11 @@ import { Context } from "../..";
 import { observer } from "mobx-react-lite";
 import { IoIosClose } from "react-icons/io";
 import { IoCheckmark } from "react-icons/io5";
-// import { PiWhatsappLogoLight, PiTelegramLogoLight } from "react-icons/pi";
-// import { PiWhatsappLogoThin } from "react-icons/pi";
-// import { PiTelegramLogoLight } from "react-icons/pi";
+import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 
 import arr from '../../assets/images/arr_black.svg'
 import { sendOrder } from "../../http/botAPI";
+import { formatBackspace, formatPhoneNumber } from "../../utils/Formatter";
 
 const questions = [
     {
@@ -73,6 +72,7 @@ export const TestModal = observer(() => {
     const [phoneNumber, setPhoneNumber] = useState('')
     const [sendNumber, setSendNumber] = useState('')
     const [telegram, setTelegram] = useState('')
+    const [email, setEmail] = useState('')
     const [privacyChecked, setPrivacyChecked] = useState(true)
     const [testSent, setTestSent] = useState(false)
 
@@ -90,118 +90,10 @@ export const TestModal = observer(() => {
         setSendNumber(cleaned)
     }
 
-    const formatPhoneNumber = (e) => {
-        let cleaned
-        cleaned = ('' + e.target.value).replace(/\D/g, '')
-        if (e.target.value[0] === '+' && e.target.value[1] === '7') {
-            cleaned = ('' + e.target.value.slice(2)).replace(/\D/g, '')
-        } else if ((e.target.value[0] === '8' || e.target.value[0] === '7') && e.target.value.length > 1) {
-            cleaned = ('' + e.target.value.splice(1)).replace(/\D/g, '')
-        } else {
-            cleaned = ('' + e.target.value).replace(/\D/g, '')
-        }
-        setSendNumber('7' + cleaned)
-        const match = cleaned.match(/^(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})$/)
-        let formattedNumber
-        switch (cleaned.length) {
-            case 10:
-                formattedNumber = !match ? '' : `(${match[1]}) ${match[2]}-${match[3]}-${match[4]}`
-                break
-            case 9:
-                formattedNumber = !match ? '' : `(${match[1]}) ${match[2]}-${match[3]}-${match[4]}`
-                break
-            case 8:
-                formattedNumber = !match ? '' : `(${match[1]}) ${match[2]}-${match[3]}-`
-                break
-            case 7:
-                formattedNumber = !match ? '' : `(${match[1]}) ${match[2]}-${match[3]}`
-                break
-            case 6:
-                formattedNumber = !match ? '' : `(${match[1]}) ${match[2]}-`
-                break
-            case 5:
-                formattedNumber = !match ? '' : `(${match[1]}) ${match[2]}`
-                break
-            case 4:
-                formattedNumber = !match ? '' : `(${match[1]}) ${match[2]}`
-                break
-            case 3:
-                formattedNumber = !match ? '' : `(${match[1]}) `
-                break
-            case 2:
-                formattedNumber = !match ? '' : `(${match[1]}`
-                break
-            case 1:
-                formattedNumber = !match ? '' : `(${match[1]}`
-                break
-            case 0:
-                formattedNumber = !match ? '' : ``
-                break
-
-            default:
-                break
-        }
-
-        return '+7 ' + formattedNumber
-    }
-
-
     const handleBackspace = (e) => {
         if (e.keyCode === 8 || e.key === 'Backspace') {
-            e.preventDefault()
-            const cleaned = ('' + e.target.value.slice(3)).replace(/\D/g, '')
-            const match = cleaned.split('')
-            let formattedNumber
-            let isEmpty = false
-            switch (cleaned.length) {
-                case 10:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}${match[1]}${match[2]}) ${match[3]}${match[4]}${match[5]}-${match[6]}${match[7]}-${match[8]}`
-                    break
-                case 9:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}${match[1]}${match[2]}) ${match[3]}${match[4]}${match[5]}-${match[6]}${match[7]}-`
-                    break
-                case 8:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}${match[1]}${match[2]}) ${match[3]}${match[4]}${match[5]}-${match[6]}`
-                    break
-                case 7:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}${match[1]}${match[2]}) ${match[3]}${match[4]}${match[5]}-`
-                    break
-                case 6:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}${match[1]}${match[2]}) ${match[3]}${match[4]}`
-                    break
-                case 5:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}${match[1]}${match[2]}) ${match[3]}`
-                    break
-                case 4:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}${match[1]}${match[2]}) `
-                    break
-                case 3:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}${match[1]}`
-                    break
-                case 2:
-                    formattedNumber = !match ? '' :
-                        `(${match[0]}`
-                    break
-                case 1:
-                    formattedNumber = !match ? '' : ``
-                    isEmpty = true
-                    break
-                case 0:
-                    formattedNumber = !match ? '' : ``
-                    isEmpty = true
-                    break
-
-                default:
-                    break
-            }
+            const formattedNumber = formatBackspace(e).formattedNumber
+            const isEmpty = formatBackspace(e).isEmpty
             const newCleaned = ('7' + formattedNumber).replace(/\D/g, '')
             if (!isEmpty) setPhoneNumber('+7 ' + formattedNumber)
             else setPhoneNumber(formattedNumber)
@@ -210,7 +102,7 @@ export const TestModal = observer(() => {
     }
 
     const sendMessage = async () => {
-        await sendOrder(testUser.current, name, phoneNumber, telegram).then(() => {
+        await sendOrder(testUser.current, name, phoneNumber, telegram, email).then(() => {
             document.querySelector('.TestBox').classList.remove('Position')
             setTestSent(true)
             setTimeout(() => {
@@ -222,6 +114,7 @@ export const TestModal = observer(() => {
                     setPhoneNumber('')
                     setSendNumber('')
                     setTelegram('')
+                    setEmail('')
                 }, 300)
             }, 900)
         })
@@ -345,15 +238,19 @@ export const TestModal = observer(() => {
                     <>
                         <div className="TestInputBox">
                             <input className="TestInput" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                            <label className="TestInputPlaceholder">Имя*</label>
+                            <label className={`TestInputPlaceholder ${name && name.length > 0 ? '' : 'CanTransform'}`}>Имя*</label>
                         </div>
                         <div className="TestInputBox">
                             <input className="TestInput" type="text" value={phoneNumber} maxLength={18} onChange={handlePhone} onKeyDown={handleBackspace} />
-                            <label className="TestInputPlaceholder">Номер телефона*</label>
+                            <label className={`TestInputPlaceholder ${phoneNumber && phoneNumber.length > 0 ? '' : 'CanTransform'}`}>Номер телефона*</label>
+                        </div>
+                        <div className="TestInputBox">
+                            <input className="TestInput" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <label className={`TestInputPlaceholder ${email && email.length > 0 ? '' : 'CanTransform'}`}>Электронная почта</label>
                         </div>
                         <div className="TestInputBox">
                             <input className="TestInput" type="text" value={telegram} onChange={(e) => setTelegram(e.target.value)} />
-                            <label className="TestInputPlaceholder">Telegram</label>
+                            <label className={`TestInputPlaceholder ${telegram && telegram.length > 0 ? '' : 'CanTransform'}`}>Telegram</label>
                         </div>
                         <div className="TestConfirmation">
                             <div className={`TestConfirmCheckbox ${privacyChecked ? 'Checked' : ''}`} onClick={() => setPrivacyChecked(!privacyChecked)}>
@@ -365,9 +262,26 @@ export const TestModal = observer(() => {
                         </div>
                         <div className={`TestSubmit ${privacyChecked && name.length > 0 && sendNumber.length === 11 ? 'Active' : ''}`} onClick={sendMessage}>Отправить</div>
                         <div className="TestRequired">* - обязатальные поля</div>
-                        {/* <div className="TestSubmit">Отправить</div> */}
-                        {/* <div className="AfterTestLine"></div>
-                        <div className="TestSub2">Или напишите нам</div> */}
+                        {page.contacting &&
+                            <>
+                                <div className="TestBr">
+                                    <span className="SpanLine"></span>
+                                    <span className="SpanOr">или</span>
+                                    <span className="SpanLine"></span>
+                                </div>
+                                <div className="TestSub2">Свяжитесь с нами</div>
+                                <div className="ContactBtns">
+                                    <a href="https://t.me/webpromise" target="_blank" rel="noreferrer" className="ContactBtn">
+                                        <FaTelegramPlane size={22} />
+                                        <span>Telegram</span>
+                                    </a>
+                                    <a href="https://wa.me/79953682131" target="_blank" rel="noreferrer" className="ContactBtn">
+                                        <FaWhatsapp size={22} />
+                                        <span>WhatsApp</span>
+                                    </a>
+                                </div>
+                            </>
+                        }
                     </>
                 }
                 <div className="TestProgressBar">

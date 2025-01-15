@@ -22,11 +22,11 @@ export const ThemeAnim = observer(() => {
 
     const switchToLightTheme = () => {
         const root = document.documentElement
-        // root.style.setProperty('--text', '#191725')
         root.style.setProperty('--text', '#232323')
         root.style.setProperty('--header', '#F3F3F3')
         root.style.setProperty('--header-bg', 'rgba(0, 0, 0, 0)')
         root.style.setProperty('--line', '#E5E5E5')
+        root.style.setProperty('--line-bright', '#d3d3d3')
         root.style.setProperty('--border', '#ffffff')
         root.style.setProperty('--shadow', '2px 2px 5px rgba(0, 0, 0, 0.1)')
         root.style.setProperty('--prices', '#231C4C')
@@ -35,6 +35,10 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--check', '#8576DF')
         root.style.setProperty('--submit', '#C6BDFC')
         root.style.setProperty('--light-btn-bg', '#C6BDFC66')
+        root.style.setProperty('--orange-flex', '#c')
+        root.style.setProperty('--background', '#ffffff')
+        root.style.setProperty('--violet-flex', '#413689')
+        root.style.setProperty('--error-flex', '#ff7b00')
     }
 
     const switchToDarkTheme = () => {
@@ -43,6 +47,7 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--header', '#232323')
         root.style.setProperty('--header-bg', 'rgba(#181818, 0.9)')
         root.style.setProperty('--line', '#232323')
+        root.style.setProperty('--line-bright', '#333333')
         root.style.setProperty('--border', '#181818')
         root.style.setProperty('--shadow', '2px 2px 5px rgba(0, 0, 0, 0.4)')
         root.style.setProperty('--border', '#362c72')
@@ -50,7 +55,11 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--inactive', '#808080')
         root.style.setProperty('--check', '#ffffff')
         root.style.setProperty('--light-btn-bg', '#ffffffb3')
-    };
+        root.style.setProperty('--orange-flex', '#ffb168')
+        root.style.setProperty('--background', '#181818')
+        root.style.setProperty('--violet-flex', '#a094e8')
+        root.style.setProperty('--error-flex', '#ffb168')
+    }
 
     useEffect(() => {
         if (isFirstRender.current) {
@@ -110,7 +119,7 @@ export const ThemeAnim = observer(() => {
 
     return (
         <div className={`ThemeAnimContainer ${changeTo}`}>
-            <div className={`ThemeLogo ${logoColor}`} onClick={() => page.setPage('/')}>
+            <div className={`ThemeLogo ${logoColor}`}>
                 {icons === 'dark' ?
                     <img src={logo} alt="" />
                     :

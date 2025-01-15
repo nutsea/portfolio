@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react"
+import { Context } from "../.."
+import { observer } from "mobx-react-lite"
 
 import { ThemeAnim } from '../../components/themeAnim/ThemeAnim'
 import { Header } from '../../components/header/Header'
@@ -7,15 +9,18 @@ import { BottomMenu } from '../../components/bottomMenu/BottomMenu'
 import { Main } from './main/Main'
 import { About } from './about/About'
 import { Prices } from './prices/Prices'
-import { Context } from "../.."
-import { observer } from "mobx-react-lite"
+import { Contacts } from "./contacts/Contacts"
+import { useLocation, useNavigate } from "react-router-dom"
 
 export const Home = observer(() => {
+    const navigate = useNavigate()
+    const location = useLocation()
     const { page } = useContext(Context)
     const mainRef = useRef(null)
     const aboutRef = useRef(null)
     const pricesRef = useRef(null)
-    const refs = [mainRef, aboutRef, pricesRef]
+    const contactsRef = useRef(null)
+    const refs = [mainRef, aboutRef, pricesRef, contactsRef]
     const timeoutRef = useRef(null)
 
     const handlePage = (link) => {
@@ -25,9 +30,9 @@ export const Home = observer(() => {
 
         page.setProgrammatically(true)
         page.setPage(link)
+        navigate(link)
 
         timeoutRef.current = setTimeout(() => {
-            console.log('timeout')
             page.setProgrammatically(false)
         }, 2000)
     }
@@ -45,10 +50,16 @@ export const Home = observer(() => {
 
         if (closestSection.ref === mainRef) {
             page.setPage('/')
+            navigate('/')
         } else if (closestSection.ref === aboutRef) {
             page.setPage('/about')
+            navigate('/about')
         } else if (closestSection.ref === pricesRef) {
             page.setPage('/pricing')
+            navigate('/pricing')
+        } else if (closestSection.ref === contactsRef) {
+            page.setPage('/contacts')
+            navigate('/contacts')
         }
     }
 
@@ -59,6 +70,8 @@ export const Home = observer(() => {
     }, [page.programmatically])
 
     useEffect(() => {
+        if (!page.programmatically) return
+
         switch (page.page) {
             case '/':
                 mainRef?.current.scrollIntoView({ behavior: 'smooth' })
@@ -72,10 +85,40 @@ export const Home = observer(() => {
                 pricesRef?.current.scrollIntoView({ behavior: 'smooth' })
                 break
 
+            case '/contacts':
+                contactsRef?.current.scrollIntoView({ behavior: 'smooth' })
+                break
+
             default:
                 break
         }
     }, [page, page.page])
+
+    useEffect(() => {
+        page.setPage(location.pathname)
+
+        switch (page.page) {
+            case '/':
+                mainRef?.current.scrollIntoView()
+                break
+
+            case '/about':
+                aboutRef?.current.scrollIntoView()
+                break
+
+            case '/pricing':
+                pricesRef?.current.scrollIntoView()
+                break
+
+            case '/contacts':
+                contactsRef?.current.scrollIntoView()
+                break
+
+            default:
+                break
+        }
+        // eslint-disable-next-line
+    }, [])
 
     return (
         <>
@@ -83,9 +126,10 @@ export const Home = observer(() => {
             <Header onPage={handlePage} />
             <Menu onPage={handlePage} />
             <BottomMenu />
-            <Main ref={mainRef} />
+            <Main ref={mainRef} onPage={handlePage} />
             <About ref={aboutRef} />
             <Prices ref={pricesRef} />
+            <Contacts ref={contactsRef} />
         </>
     )
 })

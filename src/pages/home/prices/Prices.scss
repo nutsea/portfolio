@@ -50,7 +50,7 @@
 .PriceCard {
     width: calc(100% / 3 - 70px);
     padding: 20px;
-    border: solid 1.5px white;
+    border: solid 4px white;
     border-radius: 16px;
     background-color: white;
     display: flex;
@@ -65,9 +65,28 @@
     }
 }
 
+.PriceCard.Focused {
+    // border: solid 4px base.$orange;
+    animation: borderRate 3s;
+}
+
+@keyframes borderRate {
+    0% {
+        border: solid 4px base.$orange;
+    }
+
+    90% {
+        border: solid 4px base.$orange;
+    }
+
+    100% {
+        border: solid 4px white;
+    }
+}
+
 .OnePriceCard {
     margin-top: 40px;
-    width: calc(100% - 50px + 6px);
+    width: calc(100% - 50px + 2px);
     flex-direction: row;
 
     .PriceCardBottom {
@@ -107,12 +126,14 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    // align-items: center;
     color: base.$text-stable;
 
     img {
-        width: 15px;
+        // width: 15px;
+        width: 7px;
         margin-right: 10px;
-        margin-top: 2px;
+        margin-top: 4px;
     }
 
     span {
@@ -177,7 +198,7 @@
 .PriceTip {
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 4px;
+    margin-bottom: 4.5px;
     margin-right: 8px;
     color: base.$text-stable;
 }

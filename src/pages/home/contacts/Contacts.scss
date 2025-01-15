@@ -1,0 +1,300 @@
+@use '../../../styles/base.scss';
+
+.ContactsSub {
+    font-size: 48px;
+    font-weight: 500;
+    align-self: flex-start;
+    color: base.$violet-btn;
+    margin-bottom: 16px;
+}
+
+.ContactsRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.SendForm {
+    width: 55%;
+}
+
+.SendFormRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.SendFormRow+.SendFormRow {
+    margin-top: 16px;
+}
+
+.ContactsInputBox {
+    position: relative;
+    width: calc(50% - 6px);
+    display: flex;
+}
+
+.ContactsInputBoxBig {
+    margin-top: 16px;
+    position: relative;
+    width: 100%;
+    display: flex;
+
+    .ContactsInput {
+        min-height: 100px;
+        max-height: 200px;
+        resize: vertical;
+    }
+}
+
+.ContactsInput {
+    padding: 16px 26px;
+    width: calc(100% - 52px);
+    border: none;
+    background-color: base.$violet-btn-hover-light;
+    color: base.$violet-dark;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 26px;
+    box-shadow: base.$shadow;
+    outline: none;
+    font-family: 'Manrope', sans-serif;
+}
+
+.ContactsInputPlaceholder {
+    position: absolute;
+    left: 22px;
+    top: -8px;
+    background-color: base.$violet-btn-hover-light;
+    color: base.$violet-dark-light;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 0 3px;
+    border-radius: 10px;
+    transition: font-size 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+
+.ContactsCanTransform {
+    font-size: 14px;
+    transform: translateY(24px);
+}
+
+.ContactsInput:focus+.ContactsInputPlaceholder {
+    transform: unset !important;
+    font-size: 12px;
+}
+
+.ContactsInput+.ContactsInput {
+    margin-top: 10px;
+}
+
+.ContactsSendRow {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.ContactsSendBtn {
+    width: fit-content;
+    height: 50px;
+    padding: 0px 26px;
+    display: flex;
+    align-items: center;
+    background-color: base.$violet;
+    color: white;
+    border-radius: 40px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: base.$shadow;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: base.$violet-light;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            background-color: base.$violet-light;
+        }
+    }
+}
+
+.ContactsStatus {
+    margin-left: 16px;
+    font-size: 12px;
+    display: flex;
+    color: base.$violet-flex;
+
+    &.Error {
+        color: base.$error-flex;
+    }
+}
+
+.MailSubscribe {
+    width: calc(30% - 26px);
+    height: 361px;
+    padding: 26px;
+    border-radius: 26px;
+    background-image: url('../../../assets/images/contacts_bg.png');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: base.$shadow;
+}
+
+.MailSubscribeSub {
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.MailSubscribePar {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+.NewsInputBox {
+    position: relative;
+    width: calc(100% - 6px);
+    display: flex;
+    margin-bottom: 16px;
+
+    .ContactsInput,
+    .ContactsInputPlaceholder {
+        background-color: white;
+        box-shadow: unset;
+    }
+}
+
+.NewsSendBtn {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: base.$violet-dark;
+    color: white;
+    border-radius: 40px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    // box-shadow: base.$shadow;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: base.$violet-mid;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            background-color: base.$violet-light;
+        }
+    }
+}
+
+.ContactsCards {
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ContactCard {
+    width: calc(25% - 52px - 20px);
+    padding: 26px;
+    border-radius: 26px;
+    box-shadow: base.$shadow;
+    // background-color: pink;
+
+    &.First {
+        background-color: base.$violet-mid;
+        color: white;
+
+        .ContactCardPar {
+            color: base.$violet-btn-hover-light;
+        }
+    }
+
+    &.Second {
+        background-color: base.$violet-card;
+        color: white;
+
+        .ContactCardPar {
+            color: base.$violet-btn-hover-light;
+        }
+    }
+
+    &.Third {
+        background-color: base.$violet-btn-hover-light;
+        color: base.$violet-dark;
+
+        .ContactCardPar {
+            color: base.$violet-dark-light2;
+        }
+    }
+
+    &.Fourth {
+        background-color: base.$violet-lightest;
+        color: base.$violet-dark;
+
+        .ContactCardPar {
+            color: base.$violet-dark-light3;
+        }
+    }
+}
+
+.ContactCardTop {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 16px;
+
+    img {
+        width: 40px;
+    }
+
+    a {
+        margin-left: 16px;
+        font-size: 18px;
+        font-weight: 900;
+        cursor: pointer;
+
+        @media (hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        @media (pointer: coarse) {
+            &:active {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.ContactCardPar {
+    margin-bottom: 16px;
+    font-size: 14px;
+    font-weight: 500;
+}

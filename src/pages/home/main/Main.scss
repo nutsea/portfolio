@@ -45,18 +45,19 @@
 }
 
 .MainInfoCasesBtn {
-    height: 46px;
+    height: 43px;
     width: fit-content;
     padding: 0 20px;
     display: flex;
     align-items: center;
     background-color: base.$violet-btn;
+    border: solid 1.5px base.$violet-btn;
     color: base.$text-stable;
     border-radius: 40px;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
     box-shadow: base.$shadow;
 
     img {
@@ -66,7 +67,7 @@
 
     @media (hover: hover) {
         &:hover {
-            opacity: 0.7;
+            background-color: base.$violet-btn-hover-light;
         }
 
         &:active {
@@ -76,7 +77,7 @@
 
     @media (pointer: coarse) {
         &:active {
-            opacity: 0.7;
+            background-color: base.$violet-btn-hover-light;
         }
     }
 }
@@ -85,17 +86,16 @@
     margin-left: 27px;
     height: 43px;
     border: solid 1.5px base.$text;
-    color: base.$text-stable;
+    color: base.$text;
     width: fit-content;
     padding: 0 20px;
     display: flex;
     align-items: center;
-    background-color: white;
     border-radius: 40px;
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
     box-shadow: base.$shadow;
 
     img {
@@ -103,10 +103,13 @@
         margin-top: 2px;
     }
 
+    path {
+        fill: base.$text;
+    }
+
     @media (hover: hover) {
         &:hover {
-            // opacity: 0.7;
-            background-color: base.$light-btn-bg;
+            background-color: base.$violet-btn-hover;
         }
 
         &:active {
@@ -116,8 +119,7 @@
 
     @media (pointer: coarse) {
         &:active {
-            // opacity: 0.7;
-            background-color: base.$light-btn-bg;
+            background-color: base.$violet-btn-hover;
         }
     }
 }
@@ -194,7 +196,7 @@
 
 .MainInfoSlogan {
     font-size: 70px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 80px;
     margin-top: 20px;
     margin-bottom: 40px;
@@ -246,7 +248,9 @@
     justify-content: space-between;
     overflow: hidden;
     border-radius: 36px;
-    background-image: url('../../../assets/images/cubes.JPEG');
+    // border: solid 3px base.$violet-light;
+    // background-image: url('../../../assets/images/cubes.JPEG');
+    background-image: url('../../../assets/images/cubes4.jpg');
     background-position: center;
     background-size: cover;
 }
@@ -258,8 +262,32 @@
     display: flex;
     border-radius: 40px;
     background-color: base.$banner;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
 
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background-color: white;
+        color: base.$text-stable;
+        border-radius: 30px;
+    }
+
+    a+a {
+        margin-left: 9px;
+    }
+
+    .MainBannerContactTg {
+        margin-top: 1px;
+        margin-right: 2px;
+    }
+
+    .MainBannerContactWhatsapp {
+        margin-bottom: 1px;
+    }
+    
     img {
         cursor: pointer;
         transition: opacity 0.2s ease;
@@ -275,10 +303,6 @@
                 opacity: 0.8;
             }
         }
-    }
-
-    img+img {
-        margin-left: 9px;
     }
 }
 
@@ -297,7 +321,7 @@
 }
 
 .StickTip {
-    padding: 0 10px;
+    padding: 1px 10px;
     font-size: 12px;
     font-weight: 400;
     color: white;
@@ -306,7 +330,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: -10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
 }
 
 .MainBannerStickBox+.MainBannerStickBox {
@@ -315,7 +339,7 @@
 
 .MainBannerStick {
     background-color: base.$banner;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(3px);
     padding: 10px;
     border-radius: 16px;
     border-top-left-radius: 0;
@@ -343,13 +367,13 @@
 
     @media (hover: hover) {
         &:hover {
-            background-color: base.$violet-btn;
+            background-color: base.$violet-btn-hover-light;
         }
     }
 
     @media (pointer: coarse) {
         &:active {
-            background-color: base.$violet-btn;
+            background-color: base.$violet-btn-hover-light;
         }
     }
 
@@ -440,6 +464,7 @@
     height: 40px;
     color: white;
     background-color: rgba(base.$violet, 0.4);
+    background-color: base.$banner;
     border-radius: 50px;
     display: flex;
     align-items: center;

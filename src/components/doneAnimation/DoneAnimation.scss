@@ -1,0 +1,109 @@
+@use '../../styles/base.scss';
+
+.Done {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    opacity: 1;
+    transition: opacity .3s ease;
+
+    &.Disable {
+        opacity: 0;
+    }
+
+    svg {
+        width: 20px;
+        display: block;
+
+        &.Rotate {
+            -webkit-animation: rotate .9s linear infinite;
+            animation: rotate .9s linear infinite;
+        }
+
+        &.Absolute {
+            width: 17px;
+            position: absolute;
+            left: 1px;
+            top: 2px;
+        }
+    }
+
+    .Path {
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 0;
+
+        &.Circle {
+            stroke-dashoffset: 700;
+
+            &.Sent {
+                stroke-dashoffset: 0;
+                -webkit-animation: dash 1.9s ease-in-out;
+                animation: dash 1.9s ease-in-out;
+            }
+        }
+
+        &.Check {
+            stroke-dashoffset: -100;
+            
+            &.Sent {
+                -webkit-animation: dash-check .9s .35s ease-in-out forwards;
+                animation: dash-check .9s .35s ease-in-out forwards;
+            }
+        }
+    }
+
+    circle,
+    polyline {
+        stroke: base.$violet-flex;
+    }
+
+    @-webkit-keyframes dash {
+        0% {
+            stroke-dashoffset: 700;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes dash {
+        0% {
+            stroke-dashoffset: 700;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes dash-check {
+        0% {
+            stroke-dashoffset: -100;
+        }
+
+        100% {
+            stroke-dashoffset: 900;
+        }
+    }
+
+    @keyframes dash-check {
+        0% {
+            stroke-dashoffset: -100;
+        }
+
+        100% {
+            stroke-dashoffset: 900;
+        }
+    }
+}

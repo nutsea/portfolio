@@ -8,6 +8,8 @@ export default class PageStore {
         this._changingTheme = false
         this._testing = false
         this._contacting = false
+        this._rate = ''
+        this._contactingLink = false
         makeAutoObservable(this)
     }
 
@@ -21,6 +23,7 @@ export default class PageStore {
 
     async setLightTheme(bool) {
         this._lightTheme = bool
+        localStorage.setItem('lightTheme', bool)
     }
 
     async setChangingTheme(bool) {
@@ -31,8 +34,17 @@ export default class PageStore {
         this._testing = bool
     }
 
-    async setContacting(bool) {
+    async setContacting(bool, isLink) {
         this._contacting = bool
+        this._contactingLink = isLink
+    }
+
+    async setRate(rate) {
+        this._rate = rate
+    }
+
+    async setContactingLink(bool) {
+        this._contactingLink = bool
     }
 
     get page() {
@@ -57,5 +69,13 @@ export default class PageStore {
 
     get contacting() {
         return this._contacting
+    }
+
+    get rate() {
+        return this._rate
+    }
+
+    get contactingLink() {
+        return this._contactingLink
     }
 }

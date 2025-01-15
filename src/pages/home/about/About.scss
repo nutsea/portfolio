@@ -5,173 +5,231 @@
     font-weight: 700;
 }
 
+.AboutPars {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .AboutPar {
     margin-top: 20px;
     font-size: 16px;
     font-weight: 400;
 }
 
+.AboutPar1 {
+    margin-top: 20px;
+    font-size: 56px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+
+    span {
+        // background-color: #BDB2FF4D;
+        background-color: #948bfa80;
+        font-size: 80px;
+        font-weight: 500;
+        color: base.$text;
+        text-transform: uppercase;
+    }
+}
+
+.AboutPar2 {
+    font-size: 80px;
+    font-weight: 400;
+    align-self: flex-end;
+    position: relative;
+
+    span {
+        background-color: #948bfa80;
+        font-size: 80px;
+        font-weight: 500;
+        color: base.$text;
+        text-transform: uppercase;
+    }
+
+    &::before {
+        content: 'и';
+        position: absolute;
+        font-size: 36px;
+        left: -44px;
+        top: -30px;
+    }
+}
+
+.AboutHelp {
+    margin-top: 42px;
+    font-size: 28px;
+    border: dashed 1.5px base.$text;
+    width: fit-content;
+    padding: 6px 20px;
+    border-radius: 50px;
+    transform: rotate(-3deg);
+    align-self: center;
+    box-shadow: base.$shadow;
+}
+
+.AboutArr {
+    align-self: center;
+    display: flex;
+    margin-top: 28px;
+
+    svg {
+        height: 40px;
+    }
+
+    rect {
+        stroke: base.$text;
+    }
+
+    path {
+        fill: base.$text;
+    }
+}
+
+.AboutPar3 {
+    margin-top: 36px;
+    font-size: 86px;
+    font-weight: 400;
+    align-self: center;
+
+    span {
+        background-color: #b46dff80;
+        color: base.$text;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+}
+
+.AboutPar4 {
+    margin-top: 36px;
+    font-size: 62px;
+
+    span {
+        background-color: #8B5CF680;
+        font-weight: 500;
+        color: base.$text;
+        text-transform: uppercase;
+    }
+}
+
+.AboutPar5 {
+    margin-top: 36px;
+    font-size: 36px;
+    font-weight: 400;
+    align-self: flex-end;
+
+    span {
+        background-color: #6424cb80;
+        font-size: 48px;
+        font-weight: 500;
+        color: base.$text;
+        text-transform: uppercase;
+    }
+}
+
 .AboutCards {
-    margin-top: 26px;
+    margin-top: 40px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.AboutCardBox {
-    width: calc(25% - 26px);
-    min-height: 100%;
-    display: flex;
-    cursor: pointer;
-
-    &:hover {
-        .AboutCard {
-            .AboutCardPic {
-                transform: scaleX(0);
-                transition: transform 0.3s linear(0, 1, 1) !important;
-            }
-
-            .AboutCardText {
-                transform: scaleX(1);
-                transition: transform 0.3s linear(0, 0, 1) !important;
-            }
-        }
-    }
-}
-
 .AboutCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    min-height: 100%;
-    border-radius: 26px;
-    position: relative;
-}
-
-.AboutCardText {
+    width: calc(50% - 52px);
+    padding: 16px;
+    border: solid 1px base.$line;
+    border-radius: 16px;
+    box-shadow: base.$shadow;
     background-color: base.$violet-btn-hover;
-    height: 100%;
-    padding: 20px;
-    border-radius: 26px;
-    transform: scaleX(0);
-    transition: transform 0.3s linear(0, 1, 1);
 }
 
 .AboutCardSub {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 28px;
+    font-weight: 500;
 }
 
 .AboutCardPar {
     margin-top: 16px;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+
+    .AboutCardMarker {
+        width: 24px;
+    }
+}
+
+.AboutCardMicroPar {
     font-size: 14px;
-    font-weight: 400;
-
-    b {
-        font-weight: 600;
-    }
+    margin-left: 24px;
+    margin-top: 6px;
+    opacity: 0.7;
 }
 
-.AboutCardPic {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: #BDB2FF;
-    border-radius: 26px;
+.AboutWorkSub {
+    margin-top: 40px;
+    font-size: 56px;
+    align-self: center;
+    color: base.$violet-btn;
+}
+
+.AboutMicroCards {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.AboutMicroCard {
+    width: calc(25% - 32px - 24px);
+    padding: 26px 16px;
+    border: dashed 1.5px base.$text;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    transform: scaleX(1);
-    transition: transform 0.3s linear(0, 0, 1);
-    z-index: -1;
+    position: relative;
+    box-shadow: base.$shadow;
+}
+
+.AboutMicroCardNum {
+    font-size: 80px;
+    font-weight: 300;
+    opacity: 0.4;
+    color: base.$violet;
+    position: absolute;
+}
+
+.AboutMicroCardRight1 {
+    margin-left: 47px;
+}
+
+.AboutMicroCardRight2 {
+    margin-left: 62px;
+}
+
+.AboutMicroCardRight3 {
+    margin-left: 60px;
+}
+
+.AboutMicroCardRight4 {
+    margin-left: 63px;
+}
+
+.AboutMicroCardSub {
+    font-size: 18px;
+    font-weight: 500;
     display: flex;
-    overflow: hidden;
-    
-    &.BottomRadius {
-        border-bottom-right-radius: 0;
-        
-        .AboutCardRotate {
-            width: 12%;
-            position: absolute;
-            top: 15px;
-            left: 15px;
-        }
-    }
 
-    &.TopRadius {
-        border-top-left-radius: 0;
-
-        .AboutCardRotate {
-            width: 12%;
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-        }
-    }
-
-    .AboutCardPicTextTop {
-        position: absolute;
-        width: 50%;
-        height: auto;
-        top: 0;
-        left: 0;
-    }
-
-    .AboutCardPicTextBottom {
-        position: absolute;
-        width: 50%;
-        height: auto;
-        bottom: 0;
-        right: 0;
-    }
-
-    .AboutCardPicImg {
-        height: 60%;
-        width: auto;
-        top: 20%;
-        position: relative;
-    }
-
-    &::before {
-        content: '';
-        position: absolute;
-        width: 74%;
-        height: 60%;
-        top: 20%;
-        background-color: #E4DFFF;
-        border-radius: 100%;
-        filter: blur(30px);
+    .AboutCardMarker {
+        width: 24px;
     }
 }
 
-.AboutLine {
-    min-height: 100%;
-    width: 1px;
-    background-color: base.$line;
-    z-index: -1;
-    position: relative;
-
-    &::before {
-        content: '';
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        border-radius: 5px;
-        left: calc(50% - 2.5px);
-        top: 0;
-        background-color: base.$line;
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        width: 5px;
-        height: 5px;
-        border-radius: 5px;
-        left: calc(50% - 2.5px);
-        bottom: 0;
-        background-color: base.$line;
-    }
+.AboutMicroCardPar {
+    font-size: 14px;
+    margin-top: 6px;
+    opacity: 0.7;
 }
