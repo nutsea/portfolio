@@ -108,3 +108,9 @@
         left: calc(50vw - 157px - 960px);
     }
 }
+
+@media (max-width: 900px) {
+    .MenuContainer {
+        display: none;
+    }
+}

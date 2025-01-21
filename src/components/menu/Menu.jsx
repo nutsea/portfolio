@@ -22,11 +22,11 @@ export const Menu = observer(forwardRef((props, ref) => {
     const { page } = useContext(Context)
     const [scrollPos, setScrollPos] = useState(0)
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollPos(window.scrollY)
-        }
+    const handleScroll = () => {
+        setScrollPos(window.scrollY)
+    }
 
+    useEffect(() => {
         window.addEventListener('scroll', handleScroll)
         return () => {
             window.removeEventListener('scroll', handleScroll)

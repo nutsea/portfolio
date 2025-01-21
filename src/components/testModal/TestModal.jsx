@@ -75,6 +75,7 @@ export const TestModal = observer(() => {
     const [email, setEmail] = useState('')
     const [privacyChecked, setPrivacyChecked] = useState(true)
     const [testSent, setTestSent] = useState(false)
+    const [scrollPos, setScrollPos] = useState(0)
 
     const handleClose = (e) => {
         if (!e.target.closest('.TestBox') || e.target.closest('.TestClose')) {
@@ -127,7 +128,17 @@ export const TestModal = observer(() => {
                 document.querySelector('.TestModal').classList.add('Background')
                 document.querySelector('.TestBox').classList.add('Position')
             }, 10)
+            if (window.innerWidth <= 490 || window.innerHeight <= 650) {
+                setScrollPos(window.scrollY)
+                setTimeout(() => {
+                    document.querySelector('.App')?.classList.add('Lock')
+                }, 300);
+            }
         } else {
+            if (window.innerWidth <= 490 || window.innerHeight <= 650) {
+                document.querySelector('.App')?.classList.remove('Lock')
+                window.scrollTo(0, scrollPos)
+            }
             document.querySelector('.TestModal').classList.remove('Background')
             document.querySelector('.TestBox').classList.remove('Position')
             document.querySelector('.TestSent')?.classList.add('Disable')
@@ -135,6 +146,7 @@ export const TestModal = observer(() => {
                 document.querySelector('.TestModal').classList.remove('Show')
             }, 300)
         }
+        // eslint-disable-next-line
     }, [page.testing, page.contacting])
 
     useEffect(() => {

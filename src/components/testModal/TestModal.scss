@@ -221,6 +221,7 @@
     img {
         margin-left: 16px;
         margin-top: 2px;
+        width: 14px;
     }
 
     &.Active {
@@ -494,7 +495,6 @@
 }
 
 .ContactBtn {
-    // margin-top: 20px;
     padding: 12px 20px;
     width: calc(100% - 40px);
     width: calc(50% - 45px);
@@ -527,5 +527,31 @@
         &:active {
             background-color: base.$violet-mid-hover;
         }
+    }
+}
+
+@media (max-height: 650px) {
+    .TestModal {
+        height: 100vh;
+    }
+
+    .TestBox {
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        border-radius: unset;
+        overflow: auto;
+    }
+}
+
+@media (max-width: 490px) {
+    .TestModal {
+        height: 100svh;
+    }
+
+    .TestBox {
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        border-radius: unset;
+        overflow: auto;
     }
 }

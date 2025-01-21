@@ -23,6 +23,7 @@ export const ThemeAnim = observer(() => {
     const switchToLightTheme = () => {
         const root = document.documentElement
         root.style.setProperty('--text', '#232323')
+        root.style.setProperty('--text-half', '#2323234d')
         root.style.setProperty('--header', '#F3F3F3')
         root.style.setProperty('--header-bg', 'rgba(0, 0, 0, 0)')
         root.style.setProperty('--line', '#E5E5E5')
@@ -44,13 +45,13 @@ export const ThemeAnim = observer(() => {
     const switchToDarkTheme = () => {
         const root = document.documentElement
         root.style.setProperty('--text', '#ebebeb')
+        root.style.setProperty('--text-half', '#ebebeb4d')
         root.style.setProperty('--header', '#232323')
         root.style.setProperty('--header-bg', 'rgba(#181818, 0.9)')
         root.style.setProperty('--line', '#232323')
         root.style.setProperty('--line-bright', '#333333')
         root.style.setProperty('--border', '#181818')
         root.style.setProperty('--shadow', '2px 2px 5px rgba(0, 0, 0, 0.4)')
-        root.style.setProperty('--border', '#362c72')
         root.style.setProperty('--progress', '#C6BDFC')
         root.style.setProperty('--inactive', '#808080')
         root.style.setProperty('--check', '#ffffff')

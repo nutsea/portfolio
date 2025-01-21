@@ -7,6 +7,7 @@
 
 .AboutPars {
     width: 100%;
+    max-width: 1428px;
     display: flex;
     flex-direction: column;
 }
@@ -25,7 +26,6 @@
     align-items: center;
 
     span {
-        // background-color: #BDB2FF4D;
         background-color: #948bfa80;
         font-size: 80px;
         font-weight: 500;
@@ -170,7 +170,7 @@
 
 .AboutWorkSub {
     margin-top: 40px;
-    font-size: 56px;
+    font-size: 42px;
     align-self: center;
     color: base.$violet-btn;
 }
@@ -185,7 +185,7 @@
 .AboutMicroCard {
     width: calc(25% - 32px - 24px);
     padding: 26px 16px;
-    border: dashed 1.5px base.$text;
+    border: dashed 1.5px base.$text-half;
     border-radius: 16px;
     display: flex;
     flex-direction: row;
@@ -232,4 +232,208 @@
     font-size: 14px;
     margin-top: 6px;
     opacity: 0.7;
+}
+
+@media (max-width: 1680px) {
+    .AboutPar1 {
+        align-self: center;
+    }
+
+    .AboutPar2 {
+        align-self: center;
+        margin-top: 60px;
+
+        &::before {
+            left: calc(50% - 20px);
+            top: -62px;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .AboutMicroCards {
+        flex-wrap: wrap;
+        margin-top: -10px;
+    }
+
+    .AboutMicroCard {
+        width: calc(50% - 32px - 20px);
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 950px) {
+    .AboutPar1 {
+        font-size: 36px;
+
+        span {
+            font-size: 60px;
+        }
+    }
+
+    .AboutPar2 {
+        margin-top: 40px;
+        font-size: 60px;
+
+        &::before {
+            font-size: 28px;
+            top: -42px;
+            left: calc(50% - 15px);
+        }
+
+        span {
+            font-size: 60px;
+        }
+    }
+
+    .AboutPar3 {
+        font-size: 66px;
+    }
+
+    .AboutPar4 {
+        font-size: 44px;
+        margin-top: 28px;
+    }
+
+    .AboutPar5 {
+        font-size: 28px;
+        text-align: end;
+        margin-top: 28px;
+
+        span {
+            font-size: 36px;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .AboutCards {
+        flex-direction: column;
+    }
+
+    .AboutCard {
+        width: calc(100% - 34px);
+    }
+
+    .AboutCard+.AboutCard {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    .AboutMicroCards {
+        flex-direction: column;
+    }
+
+    .AboutMicroCard {
+        width: calc(100% - 34px);
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 660px) {
+    .AboutPar1 {
+        font-size: 24px;
+
+        span {
+            font-size: 36px;
+        }
+    }
+
+    .AboutPar2 {
+        margin-top: 30px;
+        font-size: 36px;
+
+        &::before {
+            font-size: 18px;
+            top: -30px;
+            left: calc(50% - 10px);
+        }
+
+        span {
+            font-size: 36px;
+        }
+    }
+
+    .AboutHelp {
+        font-size: 18px;
+        margin-top: 28px;
+    }
+
+    .AboutArr {
+        margin-top: 18px;
+
+        svg {
+            height: 30px;
+        }
+    }
+
+    .AboutPar3 {
+        margin-top: 18px;
+        font-size: 36px;
+    }
+
+    .AboutPar4 {
+        font-size: 24px;
+        margin-top: 18px;
+    }
+
+    .AboutPar5 {
+        font-size: 18px;
+        margin-top: 18px;
+
+        span {
+            font-size: 24px;
+        }
+    }
+
+    .AboutCardSub {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .AboutCardPar {
+        font-size: 14px;
+        font-weight: 600;
+
+        .AboutCardMarker {
+            width: 16px;
+        }
+    }
+
+    .AboutCardMicroPar {
+        font-size: 12px;
+        margin-left: 16px;
+    }
+
+    .AboutWorkSub {
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    .AboutMicroCardSub {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .AboutMicroCardPar {
+        font-size: 12px;
+    }
+
+    .AboutMicroCards {
+        margin-top: 6px;
+    }
+
+    .AboutMicroCard {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 650px) {
+    .AboutCard {
+        width: 90vw;
+        padding: 16px 5vw;
+        align-self: center;
+        border-radius: unset;
+    }
 }

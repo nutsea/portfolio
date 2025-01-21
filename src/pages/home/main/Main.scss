@@ -19,10 +19,15 @@
     flex-direction: row;
     align-items: center;
 
-    img {
+    svg {
         width: 5px;
-        margin-top: 2px;
+        margin-top: 1px;
         margin-right: 6px;
+
+        circle {
+            fill: base.$text;
+            opacity: 0.1;
+        }
     }
 
     span {
@@ -61,8 +66,9 @@
     box-shadow: base.$shadow;
 
     img {
-        margin-left: 16px;
+        margin-left: 10px;
         margin-top: 2px;
+        width: 14px;
     }
 
     @media (hover: hover) {
@@ -100,7 +106,7 @@
 
     img {
         margin-left: 16px;
-        margin-top: 2px;
+        width: 14px;
     }
 
     path {
@@ -185,7 +191,13 @@
 .MainInfoDigitSub {
     font-size: 75px;
     font-weight: 600;
+    width: 213px;
     color: base.$text;
+
+    &.SubLeft {
+        margin-left: -10px;
+        width: 223px;
+    }
 }
 
 .MainInfoDigitTip {
@@ -232,8 +244,6 @@
     }
 }
 
-// BANNER
-
 .MainBanner {
     width: 705px;
     height: calc(1080px - 70px - 70px);
@@ -248,8 +258,6 @@
     justify-content: space-between;
     overflow: hidden;
     border-radius: 36px;
-    // border: solid 3px base.$violet-light;
-    // background-image: url('../../../assets/images/cubes.JPEG');
     background-image: url('../../../assets/images/cubes4.jpg');
     background-position: center;
     background-size: cover;
@@ -287,7 +295,7 @@
     .MainBannerContactWhatsapp {
         margin-bottom: 1px;
     }
-    
+
     img {
         cursor: pointer;
         transition: opacity 0.2s ease;
@@ -330,7 +338,6 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: -10px;
-    backdrop-filter: blur(3px);
 }
 
 .MainBannerStickBox+.MainBannerStickBox {
@@ -339,7 +346,6 @@
 
 .MainBannerStick {
     background-color: base.$banner;
-    backdrop-filter: blur(3px);
     padding: 10px;
     border-radius: 16px;
     border-top-left-radius: 0;
@@ -426,9 +432,10 @@
     height: 40px;
     font-size: 14px;
     font-weight: 500;
-    padding: 0 20px;
+    width: 166px;
     display: flex;
     align-items: center;
+    justify-content: center;
     background-color: white;
     color: base.$text-stable;
     border-radius: 50px;
@@ -453,7 +460,7 @@
     }
 
     img {
-        width: 13px;
+        width: 12px;
         margin-left: 12px;
         margin-top: 1px;
     }
@@ -470,7 +477,7 @@
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     margin-top: 8px;
 }
 
@@ -487,5 +494,279 @@
 @media (max-width: 1600px) {
     .MainInfoSub {
         margin-top: 0;
+    }
+}
+
+@media (max-width: 1380px) {
+    .MainContainer {
+        flex-direction: column;
+    }
+
+    .MainInfo {
+        width: 100%;
+    }
+
+    .MainBanner {
+        height: fit-content;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .MainBannerBox {
+        background-image: url('../../../assets/images/cubes5.jpg');
+    }
+
+    .MainBannerBottom {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .MainBannerSticks {
+        flex-direction: row-reverse;
+        align-items: stretch;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .MainBannerStick {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(100% - 18px - 20px);
+
+        p {
+            width: 100%;
+        }
+    }
+
+    .StickBtn {
+        height: 44px;
+        width: calc(100% - 24px);
+        padding: 0 4px 0 20px;
+        justify-content: space-between;
+
+        img {
+            width: 37px;
+            height: 37px;
+        }
+    }
+
+    .StickDiagram {
+        align-self: center;
+    }
+
+    .MainBannerStickBox {
+        margin-left: 0 !important;
+        width: calc(50% - 10px);
+    }
+
+    .MainBannerSigns {
+        margin-top: 10px;
+        align-self: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .MainLearnBtn {
+        margin-top: 10px;
+        height: 44px;
+        flex: 1 1 150px;
+        display: flex;
+        align-items: center;
+
+        img {
+            margin-left: 10px;
+        }
+    }
+
+    .MainSign {
+        margin-top: 6px !important;
+        flex: 1 1 150px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 650px) {
+    .MainInfo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .MainInfoSub {
+        span {
+            font-size: 12px;
+        }
+    }
+
+    .MainInfoSlogan {
+        font-size: 46px;
+        font-weight: 700;
+        line-height: 52px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .MainInfoPar {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 160%;
+        margin: 16px 0 0 0;
+    }
+
+    .MainInfoBtns {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .MainInfoCasesBtn {
+        font-size: 14px;
+
+        img {
+            margin-top: 0;
+        }
+    }
+
+    .MainInfoContactBtn {
+        font-size: 14px;
+
+        img {
+            margin-bottom: 1px;
+            margin-left: 10px;
+        }
+    }
+
+    .Circle1,
+    .Circle2,
+    .Circle3 {
+        width: 36px !important;
+        height: 36px !important;
+
+        img {
+            width: 20px !important;
+        }
+    }
+
+    .MainInfoDigitSub {
+        font-size: 58px;
+    }
+
+    .MainInfoDigitTip {
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .MainInfoCircles {
+        margin-top: 16px;
+    }
+
+    .MainInfoDigits {
+        margin-bottom: 16px;
+    }
+
+    .MainBannerSticks {
+        flex-direction: column;
+    }
+
+    .MainBannerStickBox {
+        width: 100%;
+    }
+
+    .MainBannerStickBox+.MainBannerStickBox {
+        margin-top: 16px;
+    }
+
+    .MainBannerBox {
+        border-radius: 20px;
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        padding: 10px;
+    }
+
+    .StickTip {
+        font-size: 10px;
+        font-weight: 500;
+        padding: 2px 10px;
+    }
+
+    .MainBannerStick {
+        p {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    .MainBanner {
+        height: fit-content;
+        width: 100vw;
+        align-self: center;
+        // margin-left: -5vw;
+        // padding: ;
+        margin-top: 30px;
+    }
+
+    .MainBannerBox {
+        padding: 30px 5vw;
+        width: calc(100% - 10vw);
+        border-radius: unset;
+    }
+}
+
+@media (max-width: 530px) {
+    .MainInfoSlogan {
+        font-size: 36px;
+        line-height: 40px;
+        text-align: center;
+    }
+
+    .MainInfoDigit {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0 !important;
+    }
+
+    .MainInfoDigitSub {
+        width: 130px;
+
+        &.SubLeft {
+            width: 130px;
+        }
+    }
+
+    .MainInfoDigitTip {
+        text-align: center;
+        width: 100%;
+    }
+
+    .MainInfoDigits {
+        justify-content: space-between;
+    }
+
+    .MainInfoBtns {
+        justify-content: space-between;
+    }
+
+    .MainInfoContactBtn {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 390px) {
+    .MainInfoBtns {
+        flex-direction: column;
+    }
+
+    .MainInfoCasesBtn,
+    .MainInfoContactBtn {
+        width: calc(100% - 44px);
+        justify-content: center;
+    }
+
+    .MainInfoContactBtn {
+        margin-top: 10px;
     }
 }
