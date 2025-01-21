@@ -11,6 +11,7 @@ import { About } from './about/About'
 import { Prices } from './prices/Prices'
 import { Contacts } from "./contacts/Contacts"
 import { useLocation, useNavigate } from "react-router-dom"
+import { Footer } from "../../components/footer/Footer"
 
 export const Home = observer(() => {
     const navigate = useNavigate()
@@ -71,6 +72,7 @@ export const Home = observer(() => {
 
     useEffect(() => {
         if (!page.programmatically) return
+        if (page.rate) return
 
         switch (page.page) {
             case '/':
@@ -125,11 +127,12 @@ export const Home = observer(() => {
             <ThemeAnim />
             <Header onPage={handlePage} />
             <Menu onPage={handlePage} />
-            <BottomMenu />
+            <BottomMenu onPage={handlePage} />
             <Main ref={mainRef} onPage={handlePage} />
             <About ref={aboutRef} />
             <Prices ref={pricesRef} />
             <Contacts ref={contactsRef} />
+            <Footer onPage={handlePage} />
         </>
     )
 })

@@ -18,8 +18,7 @@ export const Header = observer(forwardRef((props, ref) => {
     }
 
     return (
-        <div className="Header">
-            {/* <div className="HeaderLogo" onClick={() => page.setPage('/')}> */}
+        <header className="Header">
             <div 
                 className="HeaderLogo" 
                 onClick={() => {
@@ -43,6 +42,6 @@ export const Header = observer(forwardRef((props, ref) => {
                     <li onClick={() => handleNavigate('/contacts')} className={page.page === '/contacts' ? 'ChosenTab' : ''}>Контакты</li>
                 </ul>
             </nav>
-        </div>
+        </header>
     )
 }))

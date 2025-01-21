@@ -168,7 +168,6 @@
 
 .NewsInputBox {
     position: relative;
-    width: calc(100% - 6px);
     display: flex;
     margin-bottom: 16px;
 
@@ -191,7 +190,6 @@
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
-    // box-shadow: base.$shadow;
 
     @media (hover: hover) {
         &:hover {
@@ -223,7 +221,6 @@
     padding: 26px;
     border-radius: 26px;
     box-shadow: base.$shadow;
-    // background-color: pink;
 
     &.First {
         background-color: base.$violet-mid;
@@ -297,4 +294,192 @@
     margin-bottom: 16px;
     font-size: 14px;
     font-weight: 500;
+}
+
+@media (max-width: 1680px) {
+    .ContactsCards {
+        width: calc(100% + 20px);
+        margin-left: -20px;
+    }
+
+    .ContactCard {
+        width: fit-content;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1570px) {
+    .MailSubscribe {
+        width: 35%;
+    }
+}
+
+@media (max-width: 1470px) {
+    .ContactsCards {
+        flex-wrap: wrap;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 24px;
+    }
+
+    .ContactCard {
+        margin-left: 0;
+        width: calc(50% - 52px - 8px);
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .ContactsRow {
+        flex-direction: column;
+    }
+
+    .SendForm {
+        width: 100%;
+    }
+
+    .MailSubscribe {
+        width: calc(100% - 52px);
+        height: fit-content;
+        padding: 40px 26px;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 780px) {
+    .ContactCard {
+        width: calc(100% - 56px);
+    }
+}
+
+@media (max-width: 756px) {
+    .SendFormRow {
+        flex-direction: column;
+    }
+
+    .ContactsInputBox {
+        width: 100%;
+    }
+
+    .ContactsInputBox+.ContactsInputBox {
+        margin-top: 12px;
+    }
+
+    .SendFormRow+.SendFormRow {
+        margin-top: 12px;
+    }
+
+    .ContactsInputBoxBig {
+        margin-top: 12px;
+    }
+}
+
+@media (max-width: 660px) {
+    .ContactsSub {
+        font-size: 28px;
+    }
+
+    .SendForm {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .ContactsSendBtn {
+        font-weight: 500;
+        align-self: flex-end;
+    }
+
+    .ContactsSendRow {
+        align-self: flex-end;
+        width: 100%;
+    }
+
+    .ContactsSendBtn {
+        padding: 0;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .NewsInputBox {
+        margin-bottom: 6px;
+    }
+    
+    .NewsSendBtn {
+        font-weight: 500;
+    }
+
+    .MailSubscribe {
+        border-radius: 20px;
+        width: calc(100% - 20px);
+        height: fit-content;
+        padding: 40px 10px;
+    }
+
+    .MailSubscribeSub {
+        font-size: 18px;
+    }
+
+    .MailSubscribePar {
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .ContactsCards {
+        margin-top: 30px;
+    }
+    
+    .ContactCard {
+        border-radius: 20px;
+        margin-top: 10px;
+        width: calc(100% - 20px);
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ContactCardTop {
+        margin-bottom: 10px;
+
+        img {
+            width: 28px;
+        }
+
+        a {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    }
+
+    .ContactCardPar {
+        font-size: 12px;
+    }
+
+    .ContactsInputPlaceholder {
+        font-weight: 400;
+    }
+}
+
+@media (max-width: 650px) {
+    .ContactsCards {
+        width: 100vw;
+        align-self: center;
+    }
+
+    .ContactCard {
+        border-radius: 20px;
+        width: calc(100% - 10vw);
+        padding: 10px 5vw;
+        border-radius: unset;
+    }
+
+    .ContactCardTop {
+        img {
+            width: 32px;
+        }
+
+        a {
+            font-size: 17px;
+        }
+    }
 }

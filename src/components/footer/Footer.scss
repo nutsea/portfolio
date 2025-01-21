@@ -1,0 +1,167 @@
+@use '../../styles/base.scss';
+
+.Footer {
+    padding: 40px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.FooterCircle {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    top: 0;
+    border-radius: 100%;
+    background: linear-gradient(#e1dcff80 0%, #e1dcff4d 50%, #f6f5ff00 100%);
+    background: linear-gradient(#e1dcff00 0%, #e1dcff4d 50%, #f6f5ff00 100%);
+    z-index: -1;
+}
+
+.FooterSlogan {
+    align-self: center;
+    font-size: 14px;
+    opacity: 0.5;
+    margin-bottom: 14px;
+    color: base.$text;
+}
+
+.FooterSub {
+    width: 100%;
+    align-self: center;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+.FooterRow {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.FooterCol {
+    color: base.$text;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+
+    &.Wide {
+        width: 48.5%;
+    }
+
+    &.Thin {
+        width: 23.5%;
+    }
+}
+
+.FooterColSub {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.FooterLine {
+    width: 100%;
+    height: 0.5px;
+    background-color: base.$line;
+    margin: 2px 0 10px 0;
+}
+
+.FooterItem {
+    font-weight: 500;
+    opacity: 0.8;
+    width: fit-content;
+    cursor: pointer;
+
+    @media (hover: hover) {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            text-decoration: underline;
+        }
+    }
+}
+
+.FooterItem+.FooterItem {
+    margin-top: 8px;
+}
+
+.Soon {
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.FooterRights {
+    margin-top: 36px;
+    color: base.$text;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 22px;
+    opacity: 0.7;
+}
+
+.FooterRights2 {
+    display: none;
+    margin-top: 50px;
+    color: base.$text;
+    font-size: 14px;
+    align-self: flex-start;
+    flex-direction: column;
+    font-weight: 900;
+    text-transform: uppercase;
+    opacity: 0.7;
+    align-self: center;
+}
+
+@media (max-width: 900px) {
+    .FooterCol {
+        &.Wide {
+            width: calc(100% / 3 - 1.5%);
+            min-width: 160px;
+        }
+
+        &.Thin {
+            width: calc(100% / 3 - 1.5%);
+            min-width: 160px;
+        }
+    }
+}
+
+@media (max-width: 660px) {
+    .FooterRow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .FooterCol {
+        width: fit-content;
+        align-items: center;
+    }
+
+    .FooterCol+.FooterCol {
+        margin-top: 50px;
+    }
+
+    .FooterRights {
+        display: none;
+    }
+
+    .FooterRights2 {
+        display: flex;
+    }
+
+    .FooterSlogan {
+        font-size: 10px;
+        margin-bottom: 10px;
+    }
+}

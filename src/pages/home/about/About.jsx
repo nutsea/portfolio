@@ -72,13 +72,6 @@ export const About = observer(forwardRef((props, ref) => {
                     </div>
                 </div>
             </div>
-            {/* <div className="AboutCardText">
-                <div className="AboutCardSub">Как мы работаем?</div>
-                <div className="AboutCardPar"><b>1. Обсуждение задач:</b> внимательно изучаем ваши цели и предлагаем решение.</div>
-                <div className="AboutCardPar"><b>2. Планирование:</b> составляем четкий план работы с дедлайнами и этапами.</div>
-                <div className="AboutCardPar"><b>3. Разработка:</b> начинаем с прототипа и тестируем на всех устройствах.</div>
-                <div className="AboutCardPar"><b>4. Запуск и поддержка:</b> запускаем проект и берем его на обслуживание, если требуется.</div>
-            </div> */}
         </div>
     )
 }))

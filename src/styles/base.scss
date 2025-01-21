@@ -1,20 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@200..800&display=swap');
 
-// for light start
-// :root {
-//     --text: #191725;
-//     --header: #F3F3F3;
-//     --header-bg: rgba(0, 0, 0, 0);
-//     --line: #E5E5E5;
-//     --border: #ffffff;
-//     --shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-//     --prices: #231C4C;
-// }
-
-// for dark start
 :root {
     --text: #ebebeb;
+    --text-half: #ebebeb4d;
     --header: #232323;
     --header-bg: rgba(#181818, 0.9);
     --line: #232323;
@@ -34,6 +23,7 @@
 }
 
 $text: var(--text);
+$text-half: var(--text-half);
 $header: var(--header);
 $header-bg: var(--header-bg);
 $line: var(--line);
@@ -61,11 +51,12 @@ $violet-light: #a094e8;
 $violet-mid: #413689;
 $violet-mid-hover: #544d87;
 $violet-dark: #231C4C;
+$violet-darkest: #1b163a;
 $violet-dark-light: rgba($violet-dark, 0.6);
 $violet-dark-light2: rgba($violet-dark, 0.8);
 $violet-dark-light3: rgba($violet-dark, 0.7);
 $violet-card: #6a5db1;
-$banner: rgba($violet-dark, 0.7);
+$banner: rgba($violet-darkest, 0.8);
 $orange: #ff7b00;
 $orange-light: #ffb168;
 $orange-very-light: #ffd7b2;
@@ -113,7 +104,7 @@ body {
     background-color: #181818;
     margin: 0;
     width: 100vw;
-    min-height: 100vh;
+    // min-height: 100vh;
     font-family: 'Manrope', sans-serif;
     display: flex;
     flex-direction: column;

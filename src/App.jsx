@@ -35,7 +35,6 @@ export const App = () => {
         root.style.setProperty('--line-bright', '#333333')
         root.style.setProperty('--border', '#181818')
         root.style.setProperty('--shadow', '2px 2px 5px rgba(0, 0, 0, 0.4)')
-        root.style.setProperty('--border', '#362c72')
         root.style.setProperty('--progress', '#C6BDFC')
         root.style.setProperty('--inactive', '#808080')
         root.style.setProperty('--check', '#ffffff')

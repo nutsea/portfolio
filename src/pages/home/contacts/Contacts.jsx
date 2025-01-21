@@ -147,14 +147,14 @@ export const Contacts = forwardRef((props, ref) => {
                 <div className="ContactCard First">
                     <div className="ContactCardTop">
                         <img src={call} alt="" />
-                        <a href="tel:79953682131">+7 (995) 368 21-31</a>
+                        <a href="tel:+79953682131">+7 (995) 368 21-31</a>
                     </div>
                     <div className="ContactCardPar">Свяжитесь с нами по телефону, и мы ответим на все ваши вопросы</div>
                 </div>
                 <div className="ContactCard Second">
                     <div className="ContactCardTop">
                         <img src={mail} alt="" />
-                        <a href="mailto:batyrova.n@icloud.com">batyrova.n@icloud.com</a>
+                        <a href="mailto:webpromise@yandex.ru">webpromise@yandex.ru</a>
                     </div>
                     <div className="ContactCardPar">Напишите нам на почту — отправьте свои идеи, запросы или вопросы</div>
                 </div>
