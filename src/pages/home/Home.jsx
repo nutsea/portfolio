@@ -12,6 +12,7 @@ import { Prices } from './prices/Prices'
 import { Contacts } from "./contacts/Contacts"
 import { useLocation, useNavigate } from "react-router-dom"
 import { Footer } from "../../components/footer/Footer"
+import { BurgerMenu } from "../../components/burgerMenu/BurgerMenu"
 
 export const Home = observer(() => {
     const navigate = useNavigate()
@@ -127,6 +128,7 @@ export const Home = observer(() => {
             <ThemeAnim />
             <Header onPage={handlePage} />
             <Menu onPage={handlePage} />
+            <BurgerMenu />
             <BottomMenu onPage={handlePage} />
             <Main ref={mainRef} onPage={handlePage} />
             <About ref={aboutRef} />

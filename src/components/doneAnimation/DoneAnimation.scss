@@ -44,7 +44,7 @@
 
         &.Check {
             stroke-dashoffset: -100;
-            
+
             &.Sent {
                 -webkit-animation: dash-check .9s .35s ease-in-out forwards;
                 animation: dash-check .9s .35s ease-in-out forwards;
@@ -55,6 +55,17 @@
     circle,
     polyline {
         stroke: base.$violet-flex;
+    }
+
+    &.Mobile {
+        position: absolute;
+        right: -30px;
+        top: calc(50% - 10px);
+
+        circle,
+        polyline {
+            stroke: white !important;
+        }
     }
 
     @-webkit-keyframes dash {
@@ -105,5 +116,19 @@
         100% {
             stroke-dashoffset: 900;
         }
+    }
+}
+
+.Mobile {
+    display: none;
+}
+
+@media (max-width: 660px) {
+    .Mobile {
+        display: block;
+    }
+
+    .PC {
+        display: none;
     }
 }

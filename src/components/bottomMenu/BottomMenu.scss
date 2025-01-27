@@ -6,9 +6,12 @@
     bottom: 0;
     width: 7vw;
     max-width: 314px;
+    margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 10;
+    transition: opacity 0.3s ease;
 }
 
 .BottomMenuBox {
@@ -21,17 +24,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.ScrollTab {
-    height: 65px;
-    transition: height .2s ease, opacity .2s ease;
-
-    &.InactiveTab {
-        height: 0;
-        opacity: 0;
-        pointer-events: none;
-    }
 }
 
 .BottomMenuTab {
@@ -64,10 +56,6 @@
         box-shadow: inset 0 0 20px 2px rgba(base.$violet-btn, 0.5);
     }
 
-    &.InactiveTab {
-        height: 0;
-    }
-
     img {
         height: 20px;
     }
@@ -83,14 +71,55 @@
     background-color: white;
 }
 
+@media (min-width: 761px) {
+    .ScrollTab {
+        height: 65px;
+        transition: height .2s ease, opacity .2s ease;
+
+        &.InactiveTab {
+            height: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
+
 @media (min-width: 2233px) {
     .BottomMenuContainer {
         right: calc(50vw - 157px - 960px);
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 760px) {
     .BottomMenuContainer {
+        width: 50px;
+        right: 10px;
+        right: unset;
+        left: 10px;
+        padding: unset;
+    }
+
+    .BottomMenuBox {
+        width: 50px;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .BottomMenuTab {
+        width: 50px;
+        height: 50px;
+
+        img {
+            height: 16px;
+        }
+    }
+
+    .InvisibleMobile {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .BottomPCTab {
         display: none;
     }
 }

@@ -17,7 +17,7 @@ export const Main = observer(forwardRef((props, ref) => {
     const { page } = useContext(Context)
 
     return (
-        <div className="PageContainer" ref={ref}>
+        <main className="PageContainer" ref={ref}>
             <div className="MainContainer">
                 <div className="MainInfo">
                     <div className="MainInfoSub">
@@ -164,6 +164,6 @@ export const Main = observer(forwardRef((props, ref) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     )
 }))

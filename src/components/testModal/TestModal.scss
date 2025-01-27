@@ -39,11 +39,13 @@
 }
 
 .TestBoxTop {
-    width: 100%;
+    width: calc(100% + 10px);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    // align-items: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .TestSub {
@@ -57,12 +59,16 @@
     color: base.$text;
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
 }
 
 .TestClose {
     color: base.$text;
     cursor: pointer;
+
+    * {
+        pointer-events: none !important;
+    }
 }
 
 .TestInteractive {

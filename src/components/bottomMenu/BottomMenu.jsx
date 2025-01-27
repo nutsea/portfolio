@@ -35,10 +35,10 @@ export const BottomMenu = observer(forwardRef((props, ref) => {
     }, [])
 
     return (
-        <div className="BottomMenuContainer">
+        <menu className={`BottomMenuContainer ${scrollPos > 200 ? '' : 'InvisibleMobile'}`}>
             <div className="BottomMenuBox">
-                <div className={`ScrollTab ${scrollPos > 100 ? '' : 'InactiveTab'}`}>
-                    <div className={`BottomMenuTab ${scrollPos > 100 ? '' : 'InactiveTab'}`} onClick={() => handleNavigate('/')}>
+                <div className={`ScrollTab ${scrollPos > 200 ? '' : 'InactiveTab'}`}>
+                    <div className={`BottomMenuTab ${scrollPos > 200 ? '' : 'InactiveTab'}`} onClick={() => handleNavigate('/')}>
                         {(page.lightTheme) ?
                             <img src={arr_dark} alt="" />
                             :
@@ -46,14 +46,14 @@ export const BottomMenu = observer(forwardRef((props, ref) => {
                         }
                     </div>
                 </div>
-                <div className="BottomMenuTab" onClick={() => page.setChangingTheme(true)}>
+                <div className="BottomMenuTab BottomPCTab" onClick={() => page.setChangingTheme(true)}>
                     {(page.lightTheme) ?
                         <img src={moon} alt="" />
                         :
                         <img src={sun} alt="" />
                     }
                 </div>
-                <div className="BottomMenuTab">
+                <div className="BottomMenuTab BottomPCTab">
                     {(page.lightTheme) ?
                         <img src={question_dark} alt="" />
                         :
@@ -61,6 +61,6 @@ export const BottomMenu = observer(forwardRef((props, ref) => {
                     }
                 </div>
             </div>
-        </div>
+        </menu>
     )
 }))
