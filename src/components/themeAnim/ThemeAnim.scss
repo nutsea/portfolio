@@ -82,7 +82,6 @@
 
     img {
         width: 10vw;
-        min-width: 80px;
         position: absolute;
         user-select: none;
         right: calc(50% - 5vw);
@@ -101,6 +100,58 @@
 
         &.Down {
             transform: rotate(90deg);
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .ThemeAnimCircle {
+        left: -15vw;
+        width: 130vw;
+        height: 130vw;
+    }
+}
+
+@media (max-width: 800px) {
+    .ThemeAnimCircle {
+        img {
+            width: 80px;
+            position: absolute;
+            user-select: none;
+            right: calc(50% - 40px);
+            top: -40px;
+            transform: rotate(0);
+            transition: transform .7s ease;
+
+            &.ShowTheme {
+                right: -40px;
+                top: calc(50% - 40px);
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .ThemeAnimCircle {
+        left: -25vw;
+        width: 150vw;
+        height: 150vw;
+    }
+
+    .ThemeAnimCircle {
+        img {
+            width: 50px;
+            position: absolute;
+            user-select: none;
+            right: calc(50% - 25px);
+            top: -25px;
+            transform: rotate(0);
+            transition: transform .7s ease;
+
+            &.ShowTheme {
+                right: -25px;
+                top: calc(50% - 25px);
+            }
         }
     }
 }

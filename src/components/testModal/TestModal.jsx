@@ -253,7 +253,7 @@ export const TestModal = observer(() => {
                             <label className={`TestInputPlaceholder ${name && name.length > 0 ? '' : 'CanTransform'}`}>Имя*</label>
                         </div>
                         <div className="TestInputBox">
-                            <input className="TestInput" type="text" value={phoneNumber} maxLength={18} onChange={handlePhone} onKeyDown={handleBackspace} />
+                            <input className="TestInput" type="text" pattern="\d*" value={phoneNumber} maxLength={18} onChange={handlePhone} onKeyDown={handleBackspace} />
                             <label className={`TestInputPlaceholder ${phoneNumber && phoneNumber.length > 0 ? '' : 'CanTransform'}`}>Номер телефона*</label>
                         </div>
                         <div className="TestInputBox">

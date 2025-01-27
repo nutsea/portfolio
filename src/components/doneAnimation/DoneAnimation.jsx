@@ -1,9 +1,9 @@
 import React from "react"
 import './DoneAnimation.scss'
 
-export const DoneAnimation = () => {
+export const DoneAnimation = ({pc, mobile}) => {
     return (
-        <div id="done" className="Done">
+        <div id="done" className={`Done ${pc ? 'PC' : ''} ${mobile ? 'Mobile' : ''}`}>
             <svg id="rotate" className="Rotate" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
                 <circle id="circle" class="Path Circle" fill="none" stroke-width="10" stroke-miterlimit="10" cx="66.1" cy="66.1" r="58.9" />
             </svg>

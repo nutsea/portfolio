@@ -34,64 +34,66 @@ export const Menu = observer(forwardRef((props, ref) => {
     }, [])
 
     return (
-        <div className={`MenuContainer ${scrollPos > 100 ? 'ActiveMenu' : ''}`}>
-            <div className="MenuBox">
-                <div className={`MenuTab ${page.page === '/' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/')} >
-                    {(page.lightTheme) ?
-                        <img src={home} alt="" />
-                        :
-                        <img src={home2} alt="" />
-                    }
-                    <div className="MenuTip">
-                        <img src={arr} alt="" />
-                        <span>Главная</span>
-                    </div>
-                </div>
-                <div className={`MenuTab ${page.page === '/about' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/about')} >
-                    {(page.lightTheme) ?
-                        <img src={about} alt="" />
-                        :
-                        <img src={about2} alt="" />
-                    }
-                    <div className="MenuTip">
-                        <img src={arr} alt="" />
-                        <span>О нас</span>
-                    </div>
-                </div>
-                <div className={`MenuTab ${page.page === '/cases' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/cases')} >
-                    {(page.lightTheme) ?
-                        <img src={cases} alt="" />
-                        :
-                        <img src={cases2} alt="" />
-                    }
-                    <div className="MenuTip">
-                        <img src={arr} alt="" />
-                        <span>Кейсы</span>
-                    </div>
-                </div>
-                <div className={`MenuTab ${page.page === '/pricing' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/pricing')} >
-                    {(page.lightTheme) ?
-                        <img src={services} alt="" />
-                        :
-                        <img src={services2} alt="" />
-                    }
-                    <div className="MenuTip">
-                        <img src={arr} alt="" />
-                        <span>Тарифы</span>
-                    </div>
-                </div>
-                <div className={`MenuTab ${page.page === '/contacts' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/contacts')} >
-                    {(page.lightTheme) ?
-                        <img src={contacts} alt="" />
-                        :
-                        <img src={contacts2} alt="" />
-                    }
-                    <div className="MenuTip">
-                        <img src={arr} alt="" />
-                        <span>Контакты</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <menu className={`MenuContainer ${scrollPos > 100 ? 'ActiveMenu' : ''}`}>
+            <nav>
+                <ul className="MenuBox">
+                    <li className={`MenuTab ${page.page === '/' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/')} >
+                        {(page.lightTheme) ?
+                            <img src={home} alt="" />
+                            :
+                            <img src={home2} alt="" />
+                        }
+                        <div className="MenuTip">
+                            <img src={arr} alt="" />
+                            <span>Главная</span>
+                        </div>
+                    </li>
+                    <li className={`MenuTab ${page.page === '/about' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/about')} >
+                        {(page.lightTheme) ?
+                            <img src={about} alt="" />
+                            :
+                            <img src={about2} alt="" />
+                        }
+                        <div className="MenuTip">
+                            <img src={arr} alt="" />
+                            <span>О нас</span>
+                        </div>
+                    </li>
+                    <li className={`MenuTab ${page.page === '/cases' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/cases')} >
+                        {(page.lightTheme) ?
+                            <img src={cases} alt="" />
+                            :
+                            <img src={cases2} alt="" />
+                        }
+                        <div className="MenuTip">
+                            <img src={arr} alt="" />
+                            <span>Кейсы</span>
+                        </div>
+                    </li>
+                    <li className={`MenuTab ${page.page === '/pricing' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/pricing')} >
+                        {(page.lightTheme) ?
+                            <img src={services} alt="" />
+                            :
+                            <img src={services2} alt="" />
+                        }
+                        <div className="MenuTip">
+                            <img src={arr} alt="" />
+                            <span>Тарифы</span>
+                        </div>
+                    </li>
+                    <li className={`MenuTab ${page.page === '/contacts' ? (page.lightTheme ? 'ChosenTab' : 'ChosenTabLight') : ''}`} onClick={() => onPage('/contacts')} >
+                        {(page.lightTheme) ?
+                            <img src={contacts} alt="" />
+                            :
+                            <img src={contacts2} alt="" />
+                        }
+                        <div className="MenuTip">
+                            <img src={arr} alt="" />
+                            <span>Контакты</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </menu>
     )
 }))

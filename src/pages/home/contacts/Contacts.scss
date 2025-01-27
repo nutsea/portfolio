@@ -111,6 +111,11 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     box-shadow: base.$shadow;
+    
+    span {
+        width: fit-content;
+        position: relative;
+    }
 
     @media (hover: hover) {
         &:hover {
@@ -392,6 +397,16 @@
     .ContactsSendRow {
         align-self: flex-end;
         width: 100%;
+        flex-direction: column;
+    }
+
+    .ContactsStatus {
+        margin-left: 0;
+        margin-top: 0;
+
+        &.Error {
+            margin-top: 10px;
+        }
     }
 
     .ContactsSendBtn {

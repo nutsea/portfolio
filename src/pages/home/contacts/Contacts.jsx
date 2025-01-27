@@ -18,6 +18,7 @@ export const Contacts = forwardRef((props, ref) => {
     const [email2, setEmail2] = useState('')
     const [message, setMessage] = useState('')
     const [status, setStatus] = useState('')
+    const [status2, setStatus2] = useState('')
     const [error, setError] = useState('')
     const [privacyChecked, setPrivacyChecked] = useState(true)
 
@@ -56,7 +57,8 @@ export const Contacts = forwardRef((props, ref) => {
 
         if ((email.length === 0 && phoneNumber.length === 18) || (emailValidation(email) && phoneNumber.length === 18)) {
             setError(false)
-            setStatus(<DoneAnimation />)
+            setStatus(<DoneAnimation pc />)
+            setStatus2(<DoneAnimation mobile />)
         }
 
         const timeoutPromise = (ms) => new Promise((_, reject) => setTimeout(() => reject(new Error('Timeout')), ms))
@@ -70,14 +72,15 @@ export const Contacts = forwardRef((props, ref) => {
                     setEmail('')
                     setMessage('')
 
-                    document.getElementById('circle')?.classList.add('Sent')
-                    document.getElementById('polyline')?.classList.add('Sent')
+                    document.querySelectorAll('#circle')?.forEach(i => i.classList.add('Sent'))
+                    document.querySelectorAll('#polyline')?.forEach(i => i.classList.add('Sent'))
                     setTimeout(() => {
-                        document.getElementById('rotate')?.classList.remove('Rotate')
+                        document.querySelectorAll('#rotate')?.forEach(i => i.classList.add('Rotate'))
                         setTimeout(() => {
-                            document.getElementById('done')?.classList.add('Disable')
+                            document.querySelectorAll('#done')?.forEach(i => i.classList.add('Disable'))
                             setTimeout(() => {
                                 setStatus('')
+                                setStatus2('')
                             }, 900);
                         }, 3000)
                     }, 900)
@@ -91,7 +94,7 @@ export const Contacts = forwardRef((props, ref) => {
     }
 
     return (
-        <div className="PageContainer" ref={ref}>
+        <section className="PageContainer" ref={ref}>
             <div className="ContactsRow">
                 <div className="SendForm">
                     <div className="ContactsSub">Свяжитесь с нами</div>
@@ -101,7 +104,7 @@ export const Contacts = forwardRef((props, ref) => {
                             <label className={`ContactsInputPlaceholder ${name && name.length > 0 ? '' : 'ContactsCanTransform'}`}>Имя*</label>
                         </div>
                         <div className="ContactsInputBox">
-                            <input className="ContactsInput" type="text" value={phoneNumber} maxLength={18} onChange={handlePhone} onKeyDown={handleBackspace} />
+                            <input className="ContactsInput" type="text" pattern="\d*" value={phoneNumber} maxLength={18} onChange={handlePhone} onKeyDown={handleBackspace} />
                             <label className={`ContactsInputPlaceholder ${phoneNumber && phoneNumber.length > 0 ? '' : 'ContactsCanTransform'}`}>Номер телефона*</label>
                         </div>
                     </div>
@@ -129,7 +132,7 @@ export const Contacts = forwardRef((props, ref) => {
                     </div>
                     <div className="TestRequired">* - обязатальные поля</div>
                     <div className="ContactsSendRow">
-                        <div className="ContactsSendBtn" onClick={sendMessage}>Отправить</div>
+                        <div className="ContactsSendBtn" onClick={sendMessage}><span>Отправить {status2}</span></div>
                         <div className={`ContactsStatus ${error ? 'Error' : ''}`}>{status}</div>
                     </div>
                 </div>
@@ -173,6 +176,6 @@ export const Contacts = forwardRef((props, ref) => {
                     <div className="ContactCardPar">Задайте вопрос или оставьте заявку в Telegram</div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 })

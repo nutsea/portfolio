@@ -46,7 +46,7 @@ export const Prices = observer(forwardRef((props, ref) => {
     }, [page, page.rate])
 
     return (
-        <div className="PageContainer" ref={ref}>
+        <section className="PageContainer" ref={ref}>
             <div className="PricesContainer">
                 <div className="PricesSub">
                     <span>Тарифы</span>
@@ -284,6 +284,6 @@ export const Prices = observer(forwardRef((props, ref) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }))

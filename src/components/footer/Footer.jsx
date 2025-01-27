@@ -30,11 +30,15 @@ export const Footer = observer(forwardRef((props, ref) => {
                 <div className="FooterCol Wide">
                     <div className="FooterColSub">Navigation</div>
                     <div className="FooterLine"></div>
-                    <div className="FooterItem" onClick={() => handleNavigate('/')}>Главная</div>
-                    <div className="FooterItem" onClick={() => handleNavigate('/about')}>О нас</div>
-                    <div className="FooterItem" onClick={() => handleNavigate('/cases')}>Кейсы</div>
-                    <div className="FooterItem" onClick={() => handleNavigate('/pricing')}>Тарифы</div>
-                    <div className="FooterItem" onClick={() => handleNavigate('/contacts')}>Контакты</div>
+                    <nav>
+                        <ul>
+                            <li className="FooterItem" onClick={() => handleNavigate('/')}>Главная</li>
+                            <li className="FooterItem" onClick={() => handleNavigate('/about')}>О нас</li>
+                            <li className="FooterItem" onClick={() => handleNavigate('/cases')}>Кейсы</li>
+                            <li className="FooterItem" onClick={() => handleNavigate('/pricing')}>Тарифы</li>
+                            <li className="FooterItem" onClick={() => handleNavigate('/contacts')}>Контакты</li>
+                        </ul>
+                    </nav>
                 </div>
                 <div className="FooterCol Thin">
                     <div className="FooterColSub">Socials</div>

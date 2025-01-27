@@ -7,7 +7,7 @@ import { ArrSvg } from "./ArrSvg";
 export const About = observer(forwardRef((props, ref) => {
 
     return (
-        <div className="PageContainer" ref={ref}>
+        <section className="PageContainer" ref={ref}>
             <div className="AboutPars">
                 <div className="AboutPar1">Мы создаем&nbsp;<span>сайты</span></div>
                 <div className="AboutPar2"><span>веб-приложения</span>,</div>
@@ -72,6 +72,6 @@ export const About = observer(forwardRef((props, ref) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }))
