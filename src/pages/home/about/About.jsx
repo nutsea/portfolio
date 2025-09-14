@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import './About.scss'
+// import './About.scss'
 
 import { observer } from "mobx-react-lite";
 import { ArrSvg } from "./ArrSvg";

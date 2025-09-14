@@ -1,0 +1,233 @@
+@use '../../../styles/base.scss';
+
+.MainContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.MainInfoSlogan {
+    font-size: 70px;
+    font-weight: 600;
+    line-height: 56px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    // font-family: 'Tektur', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    color: base.$text-half;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+        color: base.$text;
+    }
+
+    div+div {
+        margin-top: 20px;
+    }
+}
+
+.MainInfoPar {
+    max-width: 800px;
+    margin: 10px 0 0 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+}
+
+.MainBtns {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.MainBtn1 {
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 43px;
+    padding: 0 22px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    background-color: base.$text;
+    color: base.$anti-text;
+    border: solid 1.5px base.$text;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: unset;
+            color: base.$text;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            background-color: unset;
+            color: base.$text;
+        }
+    }
+}
+
+.MainBtn2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 43px;
+    padding: 0 22px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    color: base.$text;
+    border: solid 1.5px base.$text-half;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border 0.2s ease, transform 0.2s ease;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: base.$text;
+            color: base.$anti-text;
+            border: solid 1.5px base.$text;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            background-color: base.$text;
+            color: base.$anti-text;
+            border: solid 1.5px base.$text;
+        }
+    }
+}
+
+.MainBanner {
+    width: 100%;
+    padding: 40px 0;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    img {
+        width: 80%;
+        pointer-events: none;
+    }
+}
+
+.MainBannerBtn1,
+.MainBannerBtn2,
+.MainBannerBtn3,
+.MainBannerBtn4,
+.MainBannerBtn5 {
+    position: absolute;
+    height: 52px;
+    padding: 0 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    // background-color: #333333e6;
+    background-color: base.$header;
+    // border: solid 1.5px base.$text-half;
+    color: base.$text;
+    box-shadow: base.$shadow;
+    display: flex;
+    align-items: center;
+
+    img {
+        // width: 20px;
+        height: 30px;
+        width: fit-content;
+        margin-right: 10px;
+        display: none;
+    }
+}
+
+.MainBannerBtn1 {
+    left: 0;
+    top: 30%;
+}
+
+.MainBannerBtn2 {
+    left: 10%;
+    top: 60%;
+}
+
+.MainBannerBtn3 {
+    right: 7%;
+    top: 30%;
+}
+
+.MainBannerBtn5 {
+    right: 7%;
+    top: 45%;
+}
+
+.MainBannerBtn4 {
+    right: 20%;
+    top: 70%;
+}
+
+.CirclesBox {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.Circle1 {
+    display: block;
+    background: black;
+    border-radius: 50%;
+    height: 20vw;
+    width: 20vw;
+    margin: 0;
+    background: radial-gradient(circle at 14vw 8vw, #DAD8F0, #BEB9E4, #6F679E);
+    filter: blur(0px);
+    position: absolute;
+    right: -60px;
+    bottom: -20px;
+}
+
+.Circle2 {
+    display: block;
+    background: black;
+    border-radius: 50%;
+    height: 16vw;
+    width: 16vw;
+    margin: 0;
+    background: radial-gradient(circle at 11vw 6vw, #DAD8F0, #BEB9E4, #6F679E);
+    filter: blur(0px);
+    position: absolute;
+    left: -60px;
+    bottom: 20px;
+}
+
+.Circle3 {
+    display: block;
+    background: black;
+    border-radius: 50%;
+    height: 6vw;
+    width: 6vw;
+    margin: 0;
+    background: radial-gradient(circle at 4vw 2vw, #DAD8F0, #BEB9E4, #6F679E);
+    filter: blur(0px);
+    position: absolute;
+    left: 60px;
+    top: 40px;
+}

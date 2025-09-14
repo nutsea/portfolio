@@ -1,5 +1,5 @@
 import React, { forwardRef, useContext } from "react";
-import './Main.scss'
+// import './Main.scss'
 import { Context } from "../../..";
 import { observer } from "mobx-react-lite";
 
@@ -164,6 +164,7 @@ export const Main = observer(forwardRef((props, ref) => {
                     </div>
                 </div>
             </div>
+            <figure className="Circle"></figure>
         </main>
     )
 }))

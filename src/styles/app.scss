@@ -9,8 +9,10 @@
 }
 
 .PageContainer {
+    // margin-top: 116px;
+    padding-top: 78px;
     width: 100%;
-    padding: 35px 0;
+    // padding: 35px 0;
     color: base.$text;
     display: flex;
     flex-direction: column;

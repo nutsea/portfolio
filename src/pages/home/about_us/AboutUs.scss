@@ -1,0 +1,133 @@
+@use '../../../styles/base.scss';
+
+.AboutSub {
+    font-size: 60px;
+    font-weight: 600;
+    // line-height: 56px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    // font-family: 'Tektur', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    color: base.$text-half;
+
+    span {
+        color: base.$text;
+    }
+}
+
+.AboutPar {
+    max-width: 800px;
+    text-align: center;
+    line-height: 24px;
+}
+
+.AboutCards {
+    width: 50%;
+    height: 380px;
+    position: relative;
+}
+
+.AboutCard {
+    margin-top: 30px;
+    width: calc(100% - 170px);
+    height: 300px;
+    padding: 40px 120px 0 50px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: row;
+    color: base.$text-stable;
+    position: absolute;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+
+    &:hover {
+        transform: perspective(600px) translateY(-16px) rotateX(16deg);
+    }
+}
+
+// .AnimateCard {
+//     animation: AnimateCard 0.3s ease;
+// }
+
+// @keyframes AnimateCard {
+//     0% {
+//         transform: perspective(600px) translateY(-16px) rotateX(16deg);
+//     }
+
+//     100% {
+//         transform: perspective(600px) translateY(-16px) rotateX(180deg);
+//     }
+// }
+
+.ActiveCard {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.FirstCard {
+    background-color: base.$violet-btn-hover-light;
+    z-index: 3;
+}
+
+.SecondCard {
+    background-color: base.$violet-btn;
+    z-index: 2;
+    translate: 0 20px;
+}
+
+.ThirdCard {
+    background-color: base.$violet-light;
+    z-index: 1;
+    translate: 0 40px;
+}
+
+.AboutCardLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    margin-right: 40px;
+}
+
+.AboutCardNum {
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: base.$black;
+    color: base.$anti-text-stable;
+}
+
+.AboutCardLine {
+    width: 1px;
+    // height: 100px;
+    height: calc(100% - 70px);
+    background-color: base.$black-half;
+}
+
+.AboutCardSub {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.AboutCardText {
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.AboutCardLogo {
+    position: absolute;
+    bottom: 20px;
+    bottom: 20px;
+    right: 20px;
+    width: calc(46%);
+    opacity: 0.1;
+}

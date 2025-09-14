@@ -1,10 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "WEBPROMISE",
+  "name": "Студия веб-разработки WEBPROMISE",
   "icons": [
     {
-      "src": "favicon.png",
-      "type": "image/x-icon"
+      "src": "favicon-light.ico",
+      "type": "image/x-icon",
+      "purpose": "any light"
+    },
+    {
+      "src": "favicon-dark.ico",
+      "type": "image/x-icon",
+      "purpose": "any dark"
     },
     {
       "src": "logo192.png",

@@ -2,10 +2,14 @@
 
 .ContactsSub {
     font-size: 48px;
-    font-weight: 500;
+    font-weight: 600;
     align-self: flex-start;
-    color: base.$violet-btn;
+    // color: base.$violet-btn;
+    color: base.$violet;
     margin-bottom: 16px;
+    // font-family: 'Tektur', sans-serif;
+    font-family: 'Manrope', sans-serif;
+    text-transform: uppercase;
 }
 
 .ContactsRow {
@@ -57,7 +61,7 @@
     color: base.$violet-dark;
     font-size: 14px;
     font-weight: 500;
-    border-radius: 26px;
+    border-radius: 12px;
     box-shadow: base.$shadow;
     outline: none;
     font-family: 'Manrope', sans-serif;
@@ -72,7 +76,7 @@
     font-size: 12px;
     font-weight: 500;
     padding: 0 3px;
-    border-radius: 10px;
+    border-radius: 6px;
     transition: font-size 0.2s ease, transform 0.2s ease;
     pointer-events: none;
 }
@@ -106,12 +110,12 @@
     align-items: center;
     background-color: base.$violet;
     color: white;
-    border-radius: 40px;
+    border-radius: 12px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
     box-shadow: base.$shadow;
-    
+
     span {
         width: fit-content;
         position: relative;
@@ -163,6 +167,8 @@
     font-size: 28px;
     font-weight: 600;
     margin-bottom: 6px;
+    // font-family: 'Tektur', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 
 .MailSubscribePar {
@@ -191,7 +197,7 @@
     justify-content: center;
     background-color: base.$violet-dark;
     color: white;
-    border-radius: 40px;
+    border-radius: 12px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
@@ -226,6 +232,25 @@
     padding: 26px;
     border-radius: 26px;
     box-shadow: base.$shadow;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.2s ease;
+
+    @media (hover: hover) {
+        &:hover {
+            transform: scale(1.02);
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            transform: scale(1.02);
+        }
+    }
 
     &.First {
         background-color: base.$violet-mid;
@@ -275,23 +300,10 @@
         width: 40px;
     }
 
-    a {
+    span {
         margin-left: 16px;
         font-size: 18px;
         font-weight: 900;
-        cursor: pointer;
-
-        @media (hover: hover) {
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-
-        @media (pointer: coarse) {
-            &:active {
-                text-decoration: underline;
-            }
-        }
     }
 }
 
@@ -337,6 +349,7 @@
 @media (max-width: 1000px) {
     .ContactsRow {
         flex-direction: column;
+        align-items: center;
     }
 
     .SendForm {
@@ -388,7 +401,7 @@
         display: flex;
         flex-direction: column;
     }
-    
+
     .ContactsSendBtn {
         font-weight: 500;
         align-self: flex-end;
@@ -419,7 +432,7 @@
     .NewsInputBox {
         margin-bottom: 6px;
     }
-    
+
     .NewsSendBtn {
         font-weight: 500;
     }
@@ -443,7 +456,7 @@
     .ContactsCards {
         margin-top: 30px;
     }
-    
+
     .ContactCard {
         border-radius: 20px;
         margin-top: 10px;
@@ -460,7 +473,7 @@
             width: 28px;
         }
 
-        a {
+        span {
             font-size: 14px;
             margin-left: 10px;
         }
@@ -476,16 +489,24 @@
 }
 
 @media (max-width: 650px) {
+    .MailSubscribe {
+        width: 86vw;
+        padding: 40px 7vw;
+        border-radius: unset;
+    }
+
     .ContactsCards {
+        margin-top: 0;
         width: 100vw;
         align-self: center;
     }
 
     .ContactCard {
-        border-radius: 20px;
         width: calc(100% - 10vw);
         padding: 10px 5vw;
         border-radius: unset;
+        margin-top: 0;
+        box-shadow: 0 -10px 10px 0px rgba(0, 0, 0, 0.1);
     }
 
     .ContactCardTop {
@@ -493,8 +514,15 @@
             width: 32px;
         }
 
-        a {
+        span {
             font-size: 17px;
         }
+    }
+}
+
+@media (max-width: 500px) {
+    .MailSubscribe {
+        width: 90vw;
+        padding: 40px 5vw;
     }
 }

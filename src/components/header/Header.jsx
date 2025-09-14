@@ -19,11 +19,16 @@ export const Header = observer(forwardRef((props, ref) => {
 
     return (
         <header className="Header">
-            <div 
-                className="HeaderLogo" 
+            {/* <div class="blur-gradient"></div> */}
+            <div
+                className="HeaderLogo"
                 onClick={() => {
-                    page.setPage('/')
-                    navigate('/')
+                    // onPage('/')
+                    handleNavigate('/')
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    })
                 }}
             >
                 {page.lightTheme ?
@@ -31,7 +36,7 @@ export const Header = observer(forwardRef((props, ref) => {
                     :
                     <img src={logo_white} alt="" />
                 }
-                <span>WebPromise</span>
+                {/* <span>WebPromise</span> */}
             </div>
             <nav className="HeaderNav">
                 <ul>
@@ -42,6 +47,9 @@ export const Header = observer(forwardRef((props, ref) => {
                     <li onClick={() => handleNavigate('/contacts')} className={page.page === '/contacts' ? 'ChosenTab' : ''}>Контакты</li>
                 </ul>
             </nav>
+            <div className="HeaderChat" onClick={() => page.setContacting(true)}>
+                <span>Связаться с нами</span>
+            </div>
         </header>
     )
 }))

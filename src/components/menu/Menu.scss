@@ -28,7 +28,7 @@
     padding: 5px 0;
     background-color: base.$header;
     box-shadow: base.$shadow;
-    border-radius: 50px;
+    border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,9 +61,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 40px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color .2s ease, box-shadow .2s ease;
+    transition: background-color .2s ease;
     position: relative;
 
     @media (hover: hover) {
@@ -82,7 +82,7 @@
 
     &.ChosenTabLight {
         background-color: base.$text-stable;
-        box-shadow: inset 0 0 20px 2px rgba(base.$violet-btn, 0.5);
+        background-color: rgba(base.$violet-btn, 0.5);
     }
 
     img {

@@ -26,7 +26,7 @@
     width: 400px;
     height: fit-content;
     background-color: base.$header;
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 20px;
     position: relative;
     overflow: hidden;
@@ -52,14 +52,14 @@
     color: base.$text;
     font-size: 24px;
     font-weight: 600;
-    margin-bottom: 34px;
+    // margin-bottom: 34px;
 }
 
 .TestSub2 {
     color: base.$text;
     font-size: 24px;
     font-weight: 600;
-    // margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .TestClose {
@@ -157,17 +157,17 @@
 }
 
 .TestInputBox+.TestInputBox {
-    margin-top: 20px;
+    margin-top: 8px;
 }
 
 .TestInput {
-    padding: 12px 20px;
+    padding: 16px 20px;
     width: calc(100% - 42px);
-    border: solid 1px #808080;
+    border: solid 1px #80808066;
     background-color: rgba(#808080, 0.0);
     color: base.$text;
     font-size: 14px;
-    border-radius: 10px;
+    border-radius: 12px;
     outline: none;
     font-family: 'Manrope', sans-serif;
 }
@@ -188,7 +188,7 @@
 
 .CanTransform {
     font-size: 14px;
-    transform: translateY(20.5px) translateX(8px);
+    transform: translateY(24.5px) translateX(8px);
 }
 
 .TestInput:focus+.TestInputPlaceholder {
@@ -217,15 +217,15 @@
     background-color: base.$inactive;
     pointer-events: none;
     color: base.$text-stable;
-    border-radius: 40px;
-    font-size: 16px;
+    border-radius: 12px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.3s ease;
     box-shadow: base.$shadow;
 
     img {
-        margin-left: 16px;
+        margin-left: 12px;
         margin-top: 2px;
         width: 14px;
     }
@@ -350,14 +350,16 @@
 .TestSubmit {
     margin-top: 20px;
     padding: 12px 20px;
-    width: calc(100% - 40px);
+    // width: calc(100% - 40px);
+    width: fit-content;
     background-color: base.$inactive;
     background-color: base.$submit;
     background-color: base.$violet-btn;
     background-color: base.$inactive;
     pointer-events: none;
     font-weight: 500;
-    border-radius: 10px;
+    font-size: 14px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -501,14 +503,16 @@
 }
 
 .ContactBtn {
-    padding: 12px 20px;
+    // padding: 12px 20px;
+    height: 46px;
+    padding: 0 20px;
     width: calc(100% - 40px);
     width: calc(50% - 45px);
     background-color: base.$violet-mid;
     color: white;
     font-size: 14px;
     font-weight: 500;
-    border-radius: 10px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;

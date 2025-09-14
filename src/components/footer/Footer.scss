@@ -81,16 +81,19 @@
     opacity: 0.8;
     width: fit-content;
     cursor: pointer;
+    transition: color 0.2s ease;
 
     @media (hover: hover) {
         &:hover {
-            text-decoration: underline;
+            // text-decoration: underline;
+            color: base.$violet-text;
         }
     }
 
     @media (pointer: coarse) {
         &:active {
-            text-decoration: underline;
+            // text-decoration: underline;
+            color: base.$violet-text;
         }
     }
 }
@@ -106,15 +109,18 @@
 
 .FooterRights {
     margin-top: 36px;
+    width: 100%;
     color: base.$text;
     align-self: flex-start;
     display: flex;
     flex-direction: column;
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 700;
     text-transform: uppercase;
     line-height: 22px;
     opacity: 0.7;
+    // font-family: 'Tektur', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 
 .FooterRights2 {
@@ -124,10 +130,12 @@
     font-size: 14px;
     align-self: flex-start;
     flex-direction: column;
-    font-weight: 900;
+    font-weight: 700;
     text-transform: uppercase;
     opacity: 0.7;
     align-self: center;
+    // font-family: 'Tektur', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 
 @media (max-width: 900px) {
@@ -146,21 +154,35 @@
 
 @media (max-width: 660px) {
     .FooterRow {
-        flex-direction: column;
-        align-items: center;
+        // flex-direction: column;
+        flex-wrap: wrap;
+        // align-items: center;
+        width: 100%;
+        margin-top: 0;
     }
 
     .FooterCol {
-        width: fit-content;
-        align-items: center;
+        // width: 100% !important;
+        min-width: 200px !important;
+        width: fit-content !important;
+        margin-top: 50px !important;
+        // align-items: center;
 
         ul {
-            align-items: center;
+            // align-items: center;
         }
     }
 
     .FooterCol+.FooterCol {
-        margin-top: 50px;
+        // margin-top: 50px;
+    }
+
+    .FooterColSub {
+        margin-bottom: 12px;
+    }
+
+    .FooterLine {
+        display: none;
     }
 
     .FooterRights {
@@ -169,6 +191,7 @@
 
     .FooterRights2 {
         display: flex;
+        align-self: flex-start;
     }
 
     .FooterSlogan {

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import './ThemeAnim.scss'
 
-import logo from '../../assets/images/logotype.svg'
-import logo_white from '../../assets/images/logo_white.svg'
+import logo from '../../assets/images/logotype3.svg'
+import logo_white from '../../assets/images/logo_white3.svg'
 import sun from '../../assets/images/light_anim_light.svg'
 import sun2 from '../../assets/images/light_anim_dark.svg'
 import moon from '../../assets/images/dark_anim_light.svg'
@@ -23,9 +23,13 @@ export const ThemeAnim = observer(() => {
     const switchToLightTheme = () => {
         const root = document.documentElement
         root.style.setProperty('--text', '#232323')
+        root.style.setProperty('--anti-text', '#ebebeb')
         root.style.setProperty('--text-half', '#2323234d')
-        root.style.setProperty('--header', '#F3F3F3')
-        root.style.setProperty('--header-bg', 'rgba(0, 0, 0, 0)')
+        root.style.setProperty('--text-quarter', '#2323231a')
+        // root.style.setProperty('--header', '#F3F3F3')
+        root.style.setProperty('--header', '#efefef')
+        root.style.setProperty('--header-bg', 'rgba(255, 255, 255)')
+        root.style.setProperty('--header-bg-transparent', 'rgba(255, 255, 255, 0.5)')
         root.style.setProperty('--line', '#E5E5E5')
         root.style.setProperty('--line-bright', '#d3d3d3')
         root.style.setProperty('--border', '#ffffff')
@@ -38,16 +42,20 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--light-btn-bg', '#C6BDFC66')
         root.style.setProperty('--orange-flex', '#c')
         root.style.setProperty('--background', '#ffffff')
-        root.style.setProperty('--violet-flex', '#413689')
+        root.style.setProperty('--violet-flex', '#364289')
         root.style.setProperty('--error-flex', '#ff7b00')
+        root.style.setProperty('--violet-text', '#3347e1')
     }
 
     const switchToDarkTheme = () => {
         const root = document.documentElement
         root.style.setProperty('--text', '#ebebeb')
+        root.style.setProperty('--anti-text', '#232323')
         root.style.setProperty('--text-half', '#ebebeb4d')
+        root.style.setProperty('--text-quarter', '#ebebeb1a')
         root.style.setProperty('--header', '#232323')
-        root.style.setProperty('--header-bg', 'rgba(#181818, 0.9)')
+        root.style.setProperty('--header-bg', 'rgba(24, 24, 24)')
+        root.style.setProperty('--header-bg-transparent', 'rgba(24, 24, 24, 0.5)')
         root.style.setProperty('--line', '#232323')
         root.style.setProperty('--line-bright', '#333333')
         root.style.setProperty('--border', '#181818')
@@ -60,6 +68,7 @@ export const ThemeAnim = observer(() => {
         root.style.setProperty('--background', '#181818')
         root.style.setProperty('--violet-flex', '#a094e8')
         root.style.setProperty('--error-flex', '#ffb168')
+        root.style.setProperty('--violet-text', '#767fff')
     }
 
     useEffect(() => {
@@ -88,8 +97,8 @@ export const ThemeAnim = observer(() => {
                         setChangeTo('')
                         setSunAnim('')
                         setMoonAnim('')
-                    }, 200)
-                }, 200);
+                    }, 100)
+                }, 100);
             }, 700)
         } else {
             page.setChangingTheme(false)
@@ -111,8 +120,8 @@ export const ThemeAnim = observer(() => {
                         setChangeTo('')
                         setSunAnim('')
                         setMoonAnim('')
-                    }, 200)
-                }, 200);
+                    }, 100)
+                }, 100);
             }, 700)
         }
         // eslint-disable-next-line
@@ -126,7 +135,7 @@ export const ThemeAnim = observer(() => {
                     :
                     <img src={logo_white} alt="" />
                 }
-                <span>WebPromise</span>
+                {/* <span>WebPromise</span> */}
             </div>
             <div className={`ThemeAnimCircle ${circleAnim}`}>
                 {icons === 'dark' ?

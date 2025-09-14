@@ -191,7 +191,7 @@ export const TestModal = observer(() => {
                     {testStep < 5 ?
                         <div className="TestSub">Расчет стоимости</div>
                         :
-                        <div className="TestSub2">Оставьте заявку</div>
+                        <div className="TestSub">Оставьте заявку</div>
                     }
                     <IoIosClose className="TestClose" size={30} />
                 </div>
@@ -272,8 +272,8 @@ export const TestModal = observer(() => {
                             <a className="TestLink" href={`${window.location.origin}/privacy`} target="_blank" rel="noreferrer">политикой конфиденциальности</a>
                             <span>*</span>
                         </div>
+                        <div className="TestRequired">* - обязательные поля</div>
                         <div className={`TestSubmit ${privacyChecked && name.length > 0 && sendNumber.length === 11 ? 'Active' : ''}`} onClick={sendMessage}>Отправить</div>
-                        <div className="TestRequired">* - обязатальные поля</div>
                         {page.contacting &&
                             <>
                                 <div className="TestBr">

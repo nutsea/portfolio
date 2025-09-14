@@ -4,15 +4,15 @@ import { observer } from "mobx-react-lite"
 
 import { ThemeAnim } from '../../components/themeAnim/ThemeAnim'
 import { Header } from '../../components/header/Header'
-import { Menu } from '../../components/menu/Menu'
 import { BottomMenu } from '../../components/bottomMenu/BottomMenu'
-import { Main } from './main/Main'
-import { About } from './about/About'
+// import { About } from './about/About'
 import { Prices } from './prices/Prices'
 import { Contacts } from "./contacts/Contacts"
 import { useLocation, useNavigate } from "react-router-dom"
 import { Footer } from "../../components/footer/Footer"
 import { BurgerMenu } from "../../components/burgerMenu/BurgerMenu"
+import { Main2 } from "./main2/Main2"
+import { AboutUs } from "./about_us/AboutUs"
 
 export const Home = observer(() => {
     const navigate = useNavigate()
@@ -127,12 +127,14 @@ export const Home = observer(() => {
         <>
             <ThemeAnim />
             <Header onPage={handlePage} />
-            <Menu onPage={handlePage} />
+            {/* <Menu onPage={handlePage} /> */}
             <BurgerMenu />
             <BottomMenu onPage={handlePage} />
-            <Main ref={mainRef} onPage={handlePage} />
-            <About ref={aboutRef} />
-            <Prices ref={pricesRef} />
+            {/* <Main ref={mainRef} onPage={handlePage} /> */}
+            <Main2 ref={mainRef} onPage={handlePage} />
+            {/* <About ref={aboutRef} /> */}
+            <AboutUs ref={aboutRef} />
+            <Prices ref={pricesRef} onPage={handlePage} />
             <Contacts ref={contactsRef} />
             <Footer onPage={handlePage} />
         </>

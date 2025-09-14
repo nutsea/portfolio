@@ -1,6 +1,9 @@
 @use '../../styles/base.scss';
 
 .PrivacyContainer {
+    padding-top: 40px !important;
+    padding-bottom: 40px;
+
     a {
         color: base.$violet !important;
         cursor: pointer;
@@ -18,23 +21,35 @@
         }
     }
 
-    .HeaderLogo {
+    .PrivacyLogo {
         cursor: pointer;
-        margin-top: 8px;
+
+        img {
+            height: 30px;
+        }
     }
 
     .MT30 {
         margin-top: 30px;
     }
 
+    .MT20 {
+        margin-top: 20px;
+    }
+
+    .MT6 {
+        margin-top: 6px;
+    }
+
     h2 {
-        margin-top: 40px;
+        margin-top: 30px;
         font-size: 22px;
     }
 
     h3 {
         font-weight: 600;
         margin-top: 40px;
+        margin-bottom: 20px;
         font-size: 18px;
     }
 
@@ -43,6 +58,7 @@
         font-size: 14px;
         line-height: 24px;
         letter-spacing: 0.015em;
+        align-self: flex-start;
     }
 
     ul {
@@ -51,6 +67,8 @@
         font-size: 14px;
         line-height: 24px;
         letter-spacing: 0.015em;
+        padding-left: 30px;
+        align-self: flex-start;
     }
 
     table {

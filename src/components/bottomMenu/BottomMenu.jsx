@@ -18,9 +18,13 @@ export const BottomMenu = observer(forwardRef((props, ref) => {
     const [scrollPos, setScrollPos] = useState(0)
 
     const handleNavigate = (link) => {
-        onPage(link)
-        navigate(link)
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        if (onPage) {
+            onPage(link)
+            navigate(link)
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
     }
 
     const handleScroll = () => {

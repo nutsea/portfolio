@@ -1,33 +1,60 @@
 @use '../../styles/base.scss';
 
 .Header {
-    width: calc(100% - 36px - 705px);
-    max-width: calc(1920px - 705px - 36px);
-    padding: 35px 36px 35px 0;
+    width: 100vw;
+    padding: 16px 0;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     color: base.$text;
-    position: absolute;
-    background-color: base.$header-bg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: base.$header-bg-transparent;
+    // background: linear-gradient(0deg, rgba(0, 0, 0, 0), base.$header-bg-transparent 30%);
     backdrop-filter: blur(5px);
     z-index: 1;
 }
 
+.blur-gradient {
+    position: absolute;
+    height: 100px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    // background-color: rgba(255, 255, 255, 0.537);
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    mask-image: linear-gradient(to bottom, black, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+
+    pointer-events: none;
+}
+
+
 .HeaderLogo {
-    margin-right: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    position: absolute;
+    left: 7vw;
+    cursor: pointer;
 
     img {
-        width: 22px;
-        margin-right: 12px;
-        margin-top: 1px;
+        height: 36px;
     }
 
     span {
-        font-size: 22px;
-        font-weight: 700;
+        font-size: 26px;
+        font-weight: 600;
+        // font-family: 'Tektur', sans-serif;
+        font-family: 'Manrope', sans-serif;
     }
 }
 
@@ -37,7 +64,7 @@
     height: 46px;
     padding: 0 5px;
     background-color: base.$header;
-    border-radius: 50px;
+    border-radius: 12px;
     box-shadow: base.$shadow;
 
     ul {
@@ -52,27 +79,77 @@
 
         li {
             font-size: 14px;
-            font-weight: 500;
+            font-weight: 600;
             width: calc(20% - 5px);
             height: 36px;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 36px;
+            border-radius: 10px;
             cursor: pointer;
             transition: background-color .2s ease, color .2s ease;
 
             @media (hover: hover) {
                 &:hover {
-                    background-color: base.$violet-btn-hover;
+                    background-color: base.$violet-btn-hover-transparent;
+                }
+            }
+
+            @media (pointer: coarse) {
+                &:active {
+                    background-color: base.$violet-btn-hover-transparent;
                 }
             }
 
             &.ChosenTab {
-                background-color: base.$violet-btn;
+                background-color: base.$violet-btn-hover-light;
                 color: base.$text-stable;
             }
+        }
+    }
+}
+
+.HeaderChat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    right: 7vw;
+    height: 43px;
+    padding: 0 22px;
+    background-color: pink;
+    background-color: base.$text;
+    border: solid 1.5px base.$text;
+    color: base.$anti-text;
+    border-radius: 12px;
+    box-shadow: base.$shadow;
+    font-size: 14px;
+    font-weight: 600;
+    // text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color .2s ease, color .2s ease, transform .2s ease;
+
+    img {
+        margin-left: 16px;
+        width: 14px;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: unset;
+            color: base.$text;
+        }
+
+        &:active {
+            transform: scale(0.98);
+        }
+    }
+
+    @media (pointer: coarse) {
+        &:active {
+            background-color: unset;
+            color: base.$text;
         }
     }
 }
@@ -102,7 +179,7 @@
     .Header {
         justify-content: center;
     }
-    
+
     .HeaderNav {
         display: none;
     }

@@ -147,34 +147,34 @@ export const Contacts = forwardRef((props, ref) => {
                 </div>
             </div>
             <div className="ContactsCards">
-                <div className="ContactCard First">
+                <a className="ContactCard First" href="tel:+79953682131">
                     <div className="ContactCardTop">
                         <img src={call} alt="" />
-                        <a href="tel:+79953682131">+7 (995) 368 21-31</a>
+                        <span>+7 (995) 368 21-31</span>
                     </div>
                     <div className="ContactCardPar">Свяжитесь с нами по телефону, и мы ответим на все ваши вопросы</div>
-                </div>
-                <div className="ContactCard Second">
+                </a>
+                <a className="ContactCard Second" href="mailto:webpromise@yandex.ru">
                     <div className="ContactCardTop">
                         <img src={mail} alt="" />
-                        <a href="mailto:webpromise@yandex.ru">webpromise@yandex.ru</a>
+                        <span>webpromise@yandex.ru</span>
                     </div>
                     <div className="ContactCardPar">Напишите нам на почту — отправьте свои идеи, запросы или вопросы</div>
-                </div>
-                <div className="ContactCard Third">
+                </a>
+                <a className="ContactCard Third" href="https://wa.me/79953682131" target="_blank" rel="noreferrer">
                     <div className="ContactCardTop">
                         <img src={whatsapp} alt="" />
-                        <a href="https://wa.me/79953682131" target="_blank" rel="noreferrer">WebPromise</a>
+                        <span>WebPromise</span>
                     </div>
                     <div className="ContactCardPar">Напишите нам в WhatsApp — обсудим ваши вопросы и идеи прямо сейчас</div>
-                </div>
-                <div className="ContactCard Fourth">
+                </a>
+                <a className="ContactCard Fourth" href="https://t.me/webpromise" target="_blank" rel="noreferrer">
                     <div className="ContactCardTop">
                         <img src={tg} alt="" />
-                        <a href="https://t.me/webpromise" target="_blank" rel="noreferrer">@webpromise</a>
+                        <span>@webpromise</span>
                     </div>
                     <div className="ContactCardPar">Задайте вопрос или оставьте заявку в Telegram</div>
-                </div>
+                </a>
             </div>
         </section>
     )
